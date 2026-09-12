@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0c0e">
+  <meta name="description" content="A gloriously useless machine that turns microscopic reply delays into an administratively complete emotional catastrophe.">
+  <title>Am I Being Ignored? — Department of Unnecessary Grief</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #070709;
+  --surface: #0d0d11;
+  --raised: #131217;
+  --raised-2: #19171d;
+  --line: #2a2e36;
+  --line-strong: #3a404a;
+  --text: #f5f2eb;
+  --muted: #9a929d;
+  --muted-2: #68616c;
+  --amber: #f0ad4e;
+  --amber-soft: rgba(240,173,78,.11);
+  --red: #ef6a5b;
+  --red-soft: rgba(239,106,91,.11);
+  --blue: #64a8ff;
+  --blue-soft: rgba(100,168,255,.11);
+  --green: #6dca9c;
+  --green-soft: rgba(109,202,156,.11);
+  --purple: #aa94ff;
+  --radius: 10px;
+  --font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--bg); scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+button, textarea, input, select { font: inherit; }
+button { color: inherit; }
+button, select, input[type="range"] { cursor: pointer; }
+button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+button[disabled] { opacity: .5; cursor: wait; }
+[hidden] { display: none !important; }
+
+.noise { pointer-events: none; position: fixed; inset: 0; opacity: .055; z-index: 20; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E"); }
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 100; padding: 10px 14px; background: var(--text); color: var(--bg); border-radius: 6px; }
+.skip-link:focus { top: 16px; }
+
+.topbar { height: 76px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; position: relative; z-index: 10; background: rgba(11,12,14,.92); backdrop-filter: blur(16px); }
+.brand { color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--amber); color: var(--amber); font: 800 14px/1 var(--mono); letter-spacing: -.04em; border-radius: 8px 8px 8px 2px; }
+.brand b { display: block; font: 750 13px/1.2 var(--font); letter-spacing: .08em; }
+.brand small { display: block; color: var(--muted); font: 500 11px/1.3 var(--mono); margin-top: 3px; }
+.topbar-actions { display: flex; align-items: center; gap: 12px; }
+.privacy-pill { min-height: 36px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 600 12px/1 var(--font); }
+.privacy-pill i { width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 4px var(--green-soft); }
+.icon-button { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; }
+.icon-button:hover { background: var(--raised); border-color: var(--line-strong); }
+.icon-button svg { width: 19px; fill: var(--text); }
+.icon-button[aria-pressed="false"] svg { opacity: .35; }
+
+main { min-height: calc(100vh - 76px); }
+.input-screen { max-width: 1240px; margin: 0 auto; padding: 64px 40px 72px; display: grid; grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr); gap: 72px; align-items: start; }
+.hero-copy { padding-top: 28px; position: sticky; top: 24px; }
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); font: 650 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.eyebrow span:first-child { color: var(--amber); }
+.eyebrow span + span::before { content: ""; width: 18px; height: 1px; display: inline-block; vertical-align: middle; margin-right: 10px; background: var(--line-strong); }
+h1 { max-width: 720px; font-size: clamp(46px, 5.2vw, 78px); line-height: .99; letter-spacing: -.055em; margin: 28px 0 24px; font-weight: 760; }
+h1 em { color: var(--amber); font-style: normal; }
+.lede { max-width: 610px; margin: 0; color: #bcc1ca; font-size: 18px; line-height: 1.65; }
+.hero-proof { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 38px; max-width: 600px; }
+.hero-proof div { border-top: 1px solid var(--line); padding-top: 14px; }
+.hero-proof strong { display: block; font: 700 23px/1.2 var(--mono); }
+.hero-proof span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.lab-visual { position: relative; overflow: hidden; margin-top: 40px; padding: 10px 18px; max-width: 600px; border: 1px solid var(--line); background: rgba(17,19,24,.75); border-radius: var(--radius); }
+.scan-line { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--amber); box-shadow: 0 0 18px var(--amber); opacity: .7; animation: labscan 4s linear infinite; }
+.lab-row { min-height: 47px; display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; border-bottom: 1px solid var(--line); font: 550 12px/1.2 var(--mono); }
+.lab-row:last-child { border: 0; }
+.lab-row .lab-index { color: var(--muted-2); }
+.lab-row b { color: var(--green); font-size: 10px; letter-spacing: .08em; }
+.lab-row.muted b { color: var(--amber); }
+
+.intake-panel { border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 24px; box-shadow: 0 24px 60px rgba(0,0,0,.22); }
+.panel-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.step-label, .section-intro > span, .court-hero > span, .card-heading span, .chart-card > span, .court-card > span, .court-verdict > span, .sim-result > span, .formula-card > span { color: var(--amber); font: 700 10px/1.2 var(--mono); letter-spacing: .12em; }
+.panel-heading h2 { margin: 7px 0 0; font-size: 23px; line-height: 1.25; letter-spacing: -.025em; }
+.secure-badge { border: 1px solid rgba(109,202,156,.35); color: var(--green); background: var(--green-soft); border-radius: 5px; padding: 7px 9px; font: 700 10px/1 var(--mono); letter-spacing: .08em; }
+.source-tabs { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 24px; padding: 4px; background: #0c0e12; border: 1px solid var(--line); border-radius: 8px; }
+.source-tab { min-height: 40px; padding: 0 8px; border: 0; background: transparent; color: var(--muted); border-radius: 5px; font-weight: 650; font-size: 12px; }
+.source-tab:hover { color: var(--text); }
+.source-tab.active { color: var(--text); background: var(--raised-2); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.source-pane { display: none; margin-top: 20px; }
+.source-pane.active { display: block; animation: rise .25s ease-out; }
+.source-pane > label:not(.drop-zone) { display: block; color: #c9cdd3; font-size: 12px; font-weight: 650; margin-bottom: 8px; }
+textarea { width: 100%; min-height: 192px; resize: vertical; border: 1px solid var(--line); background: #0b0d10; color: var(--text); border-radius: 8px; padding: 16px; font: 13px/1.65 var(--mono); caret-color: var(--amber); }
+textarea::placeholder { color: #515761; }
+textarea:hover, textarea:focus { border-color: var(--line-strong); }
+.textarea-meta { display: flex; justify-content: space-between; align-items: center; min-height: 30px; color: var(--muted-2); font-size: 11px; }
+.text-button { border: 0; background: transparent; color: var(--muted); padding: 5px 0 5px 12px; font-size: 11px; }
+.text-button:hover { color: var(--text); }
+.drop-zone { min-height: 220px; border: 1px dashed #3b414b; background: #0b0d10; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; transition: border-color .2s, background .2s; }
+.drop-zone:hover { border-color: var(--amber); background: var(--amber-soft); }
+.drop-zone input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.drop-zone svg { width: 32px; fill: none; stroke: var(--amber); stroke-width: 1.6; margin-bottom: 15px; }
+.drop-zone strong { font-size: 14px; }
+.drop-zone > span { margin-top: 6px; color: var(--muted); font-size: 12px; }
+.ocr-frame { width: 62px; height: 54px; position: relative; margin-bottom: 18px; }
+.ocr-frame span { position: absolute; width: 18px; height: 18px; border-color: var(--blue); border-style: solid; }
+.ocr-frame span:nth-child(1) { left: 0; top: 0; border-width: 2px 0 0 2px; }
+.ocr-frame span:nth-child(2) { right: 0; top: 0; border-width: 2px 2px 0 0; }
+.ocr-frame span:nth-child(3) { left: 0; bottom: 0; border-width: 0 0 2px 2px; }
+.ocr-frame span:nth-child(4) { right: 0; bottom: 0; border-width: 0 2px 2px 0; }
+.file-state, .image-stage { margin-top: 12px; padding: 12px; border: 1px solid var(--line); background: var(--raised); border-radius: 8px; }
+.file-state { display: flex; justify-content: space-between; gap: 12px; align-items: center; font-size: 12px; }
+.file-state b { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.file-state span { color: var(--green); }
+.image-stage { display: grid; grid-template-columns: 82px 1fr; gap: 14px; align-items: center; }
+.image-stage img { width: 82px; height: 82px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+.image-stage > div { display: grid; gap: 4px; }
+.image-stage b { font-size: 13px; }
+.image-stage span { color: var(--muted); font-size: 11px; }
+.secondary-button { min-height: 38px; border: 1px solid var(--line-strong); background: var(--raised); border-radius: 7px; padding: 0 14px; font-size: 12px; font-weight: 650; }
+.secondary-button:hover { border-color: #59616d; background: var(--raised-2); }
+.image-stage .secondary-button { margin-top: 5px; width: max-content; }
+.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.settings-grid label { color: var(--muted); font-size: 11px; font-weight: 650; }
+select { width: 100%; min-height: 44px; margin-top: 7px; border: 1px solid var(--line); background: #0b0d10; color: var(--text); border-radius: 7px; padding: 0 36px 0 12px; }
+.toggle-row { min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); }
+.switch { display: inline-flex; align-items: center; gap: 8px; position: relative; color: var(--muted); font-size: 11px; }
+.switch input { position: absolute; opacity: 0; }
+.switch > span { width: 30px; height: 18px; border-radius: 999px; background: #30343b; position: relative; transition: background .2s; }
+.switch > span::after { content: ""; width: 12px; height: 12px; border-radius: 50%; position: absolute; left: 3px; top: 3px; background: var(--muted); transition: transform .2s, background .2s; }
+.switch input:checked + span { background: var(--blue); }
+.switch input:checked + span::after { transform: translateX(12px); background: #fff; }
+.switch.large { font-size: 13px; }
+.switch.large > span { width: 38px; height: 22px; }
+.switch.large > span::after { width: 16px; height: 16px; }
+.switch.large input:checked + span::after { transform: translateX(16px); }
+.sample-strip { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; padding: 14px 0; color: var(--muted); font-size: 10px; }
+.sample-strip > span { margin-right: auto; }
+.sample-strip button { min-height: 30px; border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 0 9px; border-radius: 5px; font-size: 10px; }
+.sample-strip button:hover { color: var(--text); border-color: var(--line-strong); }
+.primary-button, .primary-small { border: 1px solid #f3c16f; background: var(--amber); color: #17110a; border-radius: 7px; font-weight: 780; }
+.primary-button { min-height: 52px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; }
+.primary-button:hover, .primary-small:hover { background: #ffc369; }
+.primary-button svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+.primary-small { min-height: 38px; padding: 0 14px; font-size: 12px; }
+.disclaimer { margin: 10px 0 0; text-align: center; color: var(--muted-2); font-size: 10px; }
+
+.scan-screen { min-height: calc(100vh - 76px); display: grid; place-items: center; padding: 40px 24px; }
+.scanner-shell { width: min(680px,100%); min-height: 580px; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 24px 48px 40px; text-align: center; position: relative; overflow: hidden; }
+.scanner-shell::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size: 42px 42px; opacity: .18; pointer-events: none; }
+.scanner-header { position: relative; display: flex; justify-content: space-between; font: 700 10px/1 var(--mono); letter-spacing: .1em; color: var(--muted); }
+.orbital { width: 200px; height: 200px; margin: 64px auto 34px; position: relative; display: grid; place-items: center; }
+.orbit { position: absolute; inset: 0; border: 1px solid rgba(100,168,255,.35); border-radius: 50%; }
+.orbit::before { content: ""; width: 9px; height: 9px; background: var(--blue); border-radius: 50%; position: absolute; top: 13px; left: 52px; box-shadow: 0 0 18px var(--blue); }
+.orbit-a { animation: spin 3.2s linear infinite; }
+.orbit-b { inset: 26px; border-color: rgba(240,173,78,.35); animation: spin 2.3s linear infinite reverse; }
+.orbit-b::before { background: var(--amber); left: 24px; top: 17px; box-shadow: 0 0 18px var(--amber); }
+.core { width: 86px; height: 86px; border-radius: 50%; display: grid; place-items: center; background: var(--raised-2); border: 1px solid var(--line-strong); font: 800 24px/1 var(--mono); color: var(--text); box-shadow: 0 0 0 16px rgba(100,168,255,.04); }
+.scanner-shell h2 { position: relative; margin: 0; font-size: 27px; letter-spacing: -.03em; }
+.scanner-shell > p { position: relative; margin: 8px 0 24px; color: var(--muted); font-size: 13px; }
+.progress-track { position: relative; height: 5px; background: #252a31; overflow: hidden; border-radius: 5px; }
+.progress-track span { display: block; width: 0; height: 100%; background: var(--blue); transition: width .45s ease; }
+.scan-log { position: relative; display: grid; gap: 6px; margin-top: 18px; text-align: left; font: 10px/1.4 var(--mono); color: var(--muted-2); }
+.scan-log div { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(42,46,54,.55); padding-bottom: 5px; }
+.scan-log b { color: var(--green); }
+
+.results-screen { max-width: 1400px; margin: 0 auto; padding: 0 36px 72px; }
+.results-topline { min-height: 72px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; border-bottom: 1px solid var(--line); }
+.back-button { justify-self: start; min-height: 40px; border: 0; background: transparent; color: var(--muted); font-size: 12px; }
+.back-button span { margin-right: 5px; }
+.back-button:hover { color: var(--text); }
+.result-nav { display: flex; align-items: stretch; height: 72px; }
+.result-tab { position: relative; border: 0; background: transparent; color: var(--muted); padding: 0 14px; font-size: 12px; font-weight: 650; }
+.result-tab::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; background: transparent; }
+.result-tab.active { color: var(--text); }
+.result-tab.active::after { background: var(--amber); }
+.results-actions { justify-self: end; display: flex; gap: 8px; }
+.result-view { display: none; }
+.result-view.active { display: block; animation: rise .35s ease-out; }
+.verdict-hero { min-height: 440px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 60px; padding: 62px 20px 52px; border-bottom: 1px solid var(--line); }
+.verdict-copy { max-width: 760px; }
+.verdict-copy h2 { margin: 17px 0 12px; font-size: clamp(38px,5vw,68px); line-height: 1; letter-spacing: -.055em; }
+.verdict-copy > p { color: #b7bdc6; font-size: 17px; max-width: 650px; }
+.mode-switch { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 26px; }
+.mode-switch button { min-height: 34px; border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 6px; padding: 0 11px; font-size: 11px; }
+.mode-switch button:hover { color: var(--text); border-color: var(--line-strong); }
+.mode-switch button.active { background: var(--amber-soft); color: var(--amber); border-color: rgba(240,173,78,.45); }
+blockquote { margin: 18px 0 0; padding: 14px 18px; border-left: 2px solid var(--amber); background: rgba(240,173,78,.05); color: #d4d7dc; font-size: 14px; line-height: 1.6; }
+.confidence-line { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; margin-top: 18px; color: var(--muted); font-size: 10px; }
+.confidence-line > div { height: 3px; background: var(--line); }
+.confidence-line i { display: block; width: 0; height: 100%; background: var(--blue); transition: width .7s ease; }
+.confidence-line b { color: var(--text); font: 700 11px/1 var(--mono); }
+.score-stage { justify-self: center; text-align: center; }
+.score-ring { --score: 0; width: 252px; height: 252px; border-radius: 50%; background: conic-gradient(var(--red) calc(var(--score) * 1%), var(--line) 0); padding: 8px; position: relative; box-shadow: 0 0 0 1px rgba(255,255,255,.03); }
+.score-ring::before { content: ""; position: absolute; inset: 22px; border: 1px solid var(--line); border-radius: 50%; }
+.score-ring > div { width: 100%; height: 100%; border-radius: 50%; background: var(--bg); display: grid; align-content: center; justify-items: center; position: relative; }
+.score-ring span { font: 760 65px/.95 var(--mono); letter-spacing: -.07em; }
+.score-ring small { margin-top: 10px; color: var(--muted); font: 700 10px/1.35 var(--mono); letter-spacing: .13em; }
+.score-label { width: max-content; margin: 17px auto 0; color: var(--red); background: var(--red-soft); border: 1px solid rgba(239,106,91,.35); border-radius: 5px; padding: 7px 10px; font: 750 10px/1 var(--mono); letter-spacing: .1em; }
+.score-stage p { color: var(--muted-2); font-size: 10px; }
+.score-stage code { font-family: var(--mono); color: var(--muted); }
+.metric-grid { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--line); }
+.metric-grid article { min-height: 150px; padding: 30px 24px; border-right: 1px solid var(--line); }
+.metric-grid article:last-child { border: 0; }
+.metric-grid span { color: var(--muted); font-size: 11px; }
+.metric-grid strong { display: block; margin-top: 10px; font: 680 32px/1.1 var(--mono); letter-spacing: -.04em; }
+.metric-grid small { display: block; margin-top: 7px; color: var(--muted-2); font-size: 10px; }
+.dashboard-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 14px; padding-top: 14px; }
+.chart-card { min-height: 330px; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 22px; }
+.chart-card.wide { grid-row: span 2; min-height: 674px; }
+.card-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.card-heading h3 { margin: 6px 0 0; font-size: 17px; letter-spacing: -.02em; }
+.card-heading > b { color: var(--muted); font: 650 11px/1 var(--mono); }
+.chart-card canvas { width: 100%; height: 550px; margin-top: 26px; display: block; }
+.effort-duel { margin-top: 46px; }
+.person-line { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; }
+.person-line b { color: var(--text); font-family: var(--mono); }
+.duel-bar { display: flex; height: 14px; margin: 12px 0; background: var(--line); overflow: hidden; border-radius: 3px; }
+.duel-bar i { display: block; height: 100%; transition: width .7s ease; }
+.duel-bar i:first-child { background: var(--blue); }
+.duel-bar i:last-child { background: var(--amber); }
+.effort-details { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 32px; }
+.effort-details div { padding: 10px; background: var(--raised); border: 1px solid var(--line); border-radius: 6px; }
+.effort-details span { display: block; color: var(--muted-2); font-size: 9px; }
+.effort-details b { display: block; margin-top: 4px; font: 650 12px/1.2 var(--mono); }
+.heatmap { display: grid; grid-template-columns: repeat(12,1fr); gap: 5px; margin-top: 42px; }
+.heatmap i { aspect-ratio: 1; border-radius: 2px; background: var(--line); }
+.heatmap-axis { display: flex; justify-content: space-between; color: var(--muted-2); font: 9px/1 var(--mono); margin-top: 9px; }
+
+.section-intro { max-width: 800px; padding: 70px 0 38px; }
+.section-intro h2 { margin: 10px 0 12px; font-size: clamp(36px,5vw,58px); line-height: 1.04; letter-spacing: -.05em; }
+.section-intro p { margin: 0; color: var(--muted); font-size: 15px; }
+.evidence-layout { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+.evidence-list { display: grid; gap: 10px; }
+.evidence-item { min-height: 112px; display: grid; grid-template-columns: 76px 1fr auto; gap: 18px; align-items: center; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 18px; }
+.exhibit-id { color: var(--amber); font: 750 12px/1.2 var(--mono); }
+.evidence-item h3 { margin: 0; font-size: 15px; }
+.evidence-item p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+.evidence-severity { min-width: 78px; text-align: center; color: var(--red); background: var(--red-soft); border: 1px solid rgba(239,106,91,.28); padding: 7px 8px; border-radius: 5px; font: 700 9px/1 var(--mono); letter-spacing: .08em; }
+.case-summary { position: sticky; top: 16px; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 22px; }
+.case-summary > span { color: var(--amber); font: 700 10px/1 var(--mono); letter-spacing: .1em; }
+.case-summary h3 { margin: 8px 0 22px; font-size: 19px; }
+.case-summary dl { margin: 0; display: grid; }
+.case-summary dl div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.case-summary dt { color: var(--muted); font-size: 11px; }
+.case-summary dd { margin: 0; font: 650 11px/1.3 var(--mono); text-align: right; }
+
+.court-hero { min-height: 420px; display: grid; align-content: center; justify-items: center; text-align: center; border-bottom: 1px solid var(--line); }
+.court-hero h2 { font: 500 clamp(44px,6vw,76px)/1 Georgia,serif; letter-spacing: -.05em; margin: 16px 0; }
+.court-hero p { margin: 0; color: var(--muted); }
+.gavel-button { margin-top: 32px; min-height: 52px; border: 1px solid #e6c382; background: #e6c382; color: #1a1510; border-radius: 7px; padding: 0 20px; font-weight: 750; }
+.gavel-button span { margin-left: 12px; }
+.court-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px 0; }
+.court-card { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 28px; min-height: 390px; }
+.court-card.prosecution { border-top-color: var(--red); }
+.court-card.defense { border-top-color: var(--blue); }
+.court-card h3 { margin: 9px 0 24px; font: 500 28px/1.1 Georgia,serif; }
+.court-card ol { list-style: none; padding: 0; margin: 0; counter-reset: evidence; }
+.court-card li { counter-increment: evidence; min-height: 64px; padding: 13px 0 13px 38px; border-top: 1px solid var(--line); position: relative; color: #c7cbd2; font-size: 13px; }
+.court-card li::before { content: counter(evidence, upper-alpha); position: absolute; left: 0; top: 14px; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; color: var(--muted); font: 700 9px/1 var(--mono); }
+.court-verdict { min-height: 220px; display: grid; place-items: center; align-content: center; text-align: center; border: 1px solid var(--line); background: var(--raised); border-radius: 10px; }
+.court-verdict h3 { margin: 12px 0 4px; font: 500 34px/1.1 Georgia,serif; }
+.court-verdict p { margin: 6px 0 0; color: var(--muted); }
+
+.sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sim-controls, .sim-result { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 30px; min-height: 520px; }
+.sim-controls > label:not(.switch) { display: block; padding: 0 0 27px; margin-bottom: 25px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.sim-controls output { float: right; color: var(--text); font: 650 12px/1 var(--mono); }
+input[type="range"] { display: block; width: 100%; margin-top: 18px; accent-color: var(--amber); }
+.sim-result { display: grid; align-content: start; }
+.sim-score { width: 184px; height: 184px; border: 1px solid var(--line-strong); border-radius: 50%; margin: 28px 0 24px; display: grid; place-items: center; align-content: center; }
+.sim-score strong { font: 720 58px/.95 var(--mono); }
+.sim-score small { text-align: center; margin-top: 7px; color: var(--muted); font: 700 9px/1.3 var(--mono); letter-spacing: .1em; }
+.sim-result h3 { margin: 0; max-width: 520px; font-size: 30px; line-height: 1.1; letter-spacing: -.04em; }
+.sim-result > p { color: var(--muted); max-width: 500px; }
+.sim-bars { display: grid; gap: 16px; margin-top: 30px; }
+.sim-bars label { color: var(--muted); font-size: 11px; }
+.sim-bars label > span { float: right; color: var(--text); font-family: var(--mono); }
+.sim-bars i { display: block; height: 6px; margin-top: 7px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.sim-bars b { display: block; width: 0; height: 100%; background: var(--blue); transition: width .35s; }
+.sim-bars label:last-child b { background: var(--red); }
+
+.method-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.method-grid article { min-height: 220px; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; padding: 24px; }
+.method-grid span { color: var(--amber); font: 700 28px/1 var(--mono); }
+.method-grid h3 { margin: 26px 0 8px; font-size: 17px; }
+.method-grid p { margin: 0; color: var(--muted); font-size: 12px; }
+.formula-card { margin-top: 14px; min-height: 180px; border: 1px solid var(--line); background: var(--raised); border-radius: 9px; padding: 28px; display: grid; align-content: center; }
+.formula-card code { display: block; margin-top: 14px; color: var(--text); font: 650 clamp(24px,4vw,44px)/1.1 var(--mono); }
+.formula-card p { color: var(--muted); font-size: 12px; }
+
+.toast { position: fixed; left: 50%; bottom: 22px; z-index: 90; transform: translate(-50%,30px); opacity: 0; pointer-events: none; max-width: calc(100% - 32px); background: var(--text); color: var(--bg); padding: 11px 15px; border-radius: 7px; font-size: 12px; font-weight: 650; transition: opacity .2s, transform .2s; }
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+.verdict-flash { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; background: rgba(5,6,7,.92); opacity: 0; pointer-events: none; transition: opacity .25s; }
+.verdict-flash.show { opacity: 1; pointer-events: auto; }
+.verdict-flash > div { text-align: center; animation: verdictIn .45s cubic-bezier(.2,.8,.2,1); }
+.verdict-flash span { display: block; font-size: 82px; }
+.verdict-flash b { display: block; margin-top: 8px; color: var(--red); font: 800 clamp(54px,10vw,120px)/.9 var(--font); letter-spacing: -.06em; }
+.verdict-flash small { display: block; margin-top: 18px; color: var(--muted); font: 700 12px/1 var(--mono); letter-spacing: .18em; }
+
+@keyframes labscan { from { left: 0; } to { left: 100%; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes verdictIn { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 1060px) {
+  .input-screen { grid-template-columns: 1fr; gap: 42px; max-width: 800px; }
+  .hero-copy { position: static; padding-top: 0; }
+  .lab-visual { display: none; }
+  .results-topline { grid-template-columns: 1fr auto; }
+  .result-nav { grid-column: 1 / -1; grid-row: 2; order: 3; overflow-x: auto; height: 52px; }
+  .results-topline { padding: 12px 0 0; }
+  .result-tab { height: 52px; white-space: nowrap; }
+  .verdict-hero { grid-template-columns: 1fr; gap: 38px; }
+  .score-stage { grid-row: 1; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+  .metric-grid article:nth-child(2) { border-right: 0; }
+  .metric-grid article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .chart-card.wide { min-height: 570px; grid-row: auto; }
+  .chart-card canvas { height: 450px; }
+}
+
+@media (max-width: 760px) {
+  .topbar { padding: 0 18px; height: 68px; }
+  .privacy-pill { display: none; }
+  main { min-height: calc(100vh - 68px); }
+  .input-screen { padding: 38px 18px 56px; }
+  h1 { font-size: 48px; }
+  .lede { font-size: 16px; }
+  .hero-proof { gap: 8px; }
+  .hero-proof span { font-size: 10px; }
+  .intake-panel { padding: 18px; }
+  .source-tab { font-size: 10px; }
+  .settings-grid { grid-template-columns: 1fr; }
+  .toggle-row { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+  .sample-strip > span { width: 100%; margin-bottom: 4px; }
+  .scanner-shell { padding: 18px 22px 32px; min-height: 520px; }
+  .orbital { margin-top: 54px; }
+  .results-screen { padding: 0 18px 54px; }
+  .results-actions .secondary-button { display: none; }
+  .verdict-hero { padding: 44px 0; }
+  .verdict-copy h2 { font-size: 42px; }
+  .score-ring { width: 218px; height: 218px; }
+  .score-ring span { font-size: 56px; }
+  .metric-grid { grid-template-columns: 1fr; }
+  .metric-grid article { border-right: 0; border-bottom: 1px solid var(--line); min-height: 125px; }
+  .metric-grid article:last-child { border-bottom: 0; }
+  .dashboard-grid { gap: 10px; }
+  .chart-card { padding: 17px; }
+  .chart-card.wide { min-height: 465px; }
+  .chart-card canvas { height: 340px; }
+  .effort-details { grid-template-columns: 1fr 1fr 1fr; }
+  .evidence-layout { grid-template-columns: 1fr; }
+  .case-summary { position: static; }
+  .evidence-item { grid-template-columns: 56px 1fr; }
+  .evidence-severity { grid-column: 2; width: max-content; }
+  .court-columns, .sim-grid { grid-template-columns: 1fr; }
+  .court-hero { min-height: 360px; }
+  .court-card { min-height: auto; }
+  .method-grid { grid-template-columns: 1fr; }
+  .method-grid article { min-height: 170px; }
+  .sim-controls, .sim-result { min-height: auto; padding: 22px; }
+  .section-intro { padding-top: 48px; }
+}
+
+@media (max-width: 430px) {
+  .brand small { display: none; }
+  .brand b { font-size: 11px; }
+  h1 { font-size: 43px; }
+  .hero-proof { grid-template-columns: 1fr; }
+  .hero-proof div { display: flex; align-items: baseline; gap: 8px; }
+  .hero-proof strong { font-size: 18px; }
+  .source-tabs { grid-template-columns: 1fr; }
+  .source-tab { min-height: 36px; }
+  .results-topline { gap: 8px; }
+  .back-button { font-size: 11px; }
+  .primary-small { padding: 0 10px; }
+  .result-tab { padding: 0 11px; }
+  .mode-switch button { flex: 1 0 calc(33% - 6px); }
+  .chart-card.wide { min-height: 420px; }
+  .chart-card canvas { height: 300px; }
+  .effort-details { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+}
+
+
+/* Uselessness v2: intentionally depressive, not clinically meaningful */
+.doom-ticker { min-height: 30px; overflow: hidden; border-bottom: 1px solid #231f28; background: #09080b; color: #77717d; display: grid; place-items: center; font: 700 9px/1 var(--mono); letter-spacing: .12em; white-space: nowrap; }
+.doom-ticker div { animation: ticker 24s linear infinite; }
+.doom-ticker span { color: #403a44; margin: 0 18px; }
+.emoji-rain { position: fixed; inset: 0; z-index: 18; pointer-events: none; overflow: hidden; opacity: .18; }
+.emoji-rain i { position: absolute; top: -50px; font-style: normal; animation: sadfall linear infinite; filter: grayscale(.35); }
+.situation-banner { margin-top: 14px; min-height: 132px; display: grid; grid-template-columns: 78px 1fr auto; gap: 18px; align-items: center; padding: 24px; border: 1px solid #342936; border-left: 3px solid #9d6a9e; background: #100d12; border-radius: 9px; }
+.situation-emoji { width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid #3a303d; border-radius: 50%; background: #171119; font-size: 27px; }
+.situation-banner span { color: #b17aae; font: 700 10px/1.2 var(--mono); letter-spacing: .11em; }
+.situation-banner h3 { margin: 7px 0 3px; font-size: 20px; }
+.situation-banner p { margin: 0; color: var(--muted); font-size: 12px; }
+.situation-banner > strong { color: #d398cf; font: 750 29px/1 var(--mono); text-align: right; }
+.obituary-hero { min-height: 620px; display: grid; place-items: center; align-content: center; text-align: center; border-bottom: 1px solid var(--line); position: relative; }
+.obituary-hero > span { color: #a77aa5; font: 700 10px/1 var(--mono); letter-spacing: .16em; }
+.obituary-icon { font-size: 94px; margin: 24px 0 10px; filter: grayscale(.35); animation: breathe 3.8s ease-in-out infinite; }
+.obituary-hero h2 { max-width: 850px; margin: 10px auto; font: 500 clamp(44px,6vw,78px)/1 Georgia,serif; letter-spacing: -.045em; }
+.obituary-hero p { color: var(--muted); }
+.obituary-hero blockquote { max-width: 620px; border-left: 0; border-top: 1px solid #3a303d; border-bottom: 1px solid #3a303d; background: transparent; font: italic 20px/1.5 Georgia,serif; color: #bbb2bd; }
+.grief-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; padding: 14px 0; }
+.grief-grid article { min-height: 170px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 18px; }
+.grief-grid b { display: block; font-size: 25px; }
+.grief-grid h3 { margin: 28px 0 4px; font-size: 14px; }
+.grief-grid p { margin: 0; color: var(--muted); font-size: 10px; }
+.death-certificate { min-height: 340px; border: 1px solid #3a303d; background: #100d12; border-radius: 9px; padding: 36px; margin-bottom: 40px; position: relative; }
+.death-certificate > span { color: #a77aa5; font: 700 10px/1 var(--mono); letter-spacing: .15em; }
+.death-certificate h3 { margin: 22px 0 8px; font: 500 34px/1.12 Georgia,serif; }
+.death-certificate p { max-width: 720px; color: var(--muted); }
+.death-certificate > div { position: absolute; right: 36px; bottom: 34px; text-align: right; }
+.death-certificate b { display: block; color: #d398cf; font: 750 32px/1 var(--mono); }
+.death-certificate small { color: var(--muted-2); font: 700 9px/1 var(--mono); letter-spacing: .11em; }
+
+@keyframes ticker { from { transform: translateX(12%); } to { transform: translateX(-12%); } }
+@keyframes sadfall { to { transform: translateY(calc(100vh + 100px)) rotate(24deg); } }
+@keyframes breathe { 50% { transform: scale(1.045); opacity: .75; } }
+
+@media (max-width: 760px) {
+  .doom-ticker { justify-content: start; }
+  .doom-ticker div { animation-duration: 16s; }
+  .situation-banner { grid-template-columns: 52px 1fr; }
+  .situation-emoji { width: 48px; height: 48px; }
+  .situation-banner > strong { grid-column: 2; text-align: left; }
+  .grief-grid { grid-template-columns: 1fr 1fr; }
+  .death-certificate > div { position: static; text-align: left; margin-top: 34px; }
+}
+
+/* Precision tragedy readout */
+.score-ring span { font-size: 39px; letter-spacing: -.075em; }
+@media (max-width: 760px) { .score-ring span { font-size: 33px; } }
+
+
+
+/* Final useless polish: panic finale */
+.final-panic .verdict-hero, .final-panic .obituary-hero { animation: finalDoomPulse .42s steps(2,end) infinite; }
+.final-panic .doom-ticker { color: #ffb13b; text-shadow: 0 0 18px rgba(255,177,59,.55); }
+@keyframes finalDoomPulse { 50% { filter: saturate(1.35) contrast(1.08); transform: translateY(-1px); } }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Am I Being Ignored home">
+      <span class="brand-mark">AI</span>
+      <span><b>AM I BEING IGNORED?</b><small>Department of Unnecessary Grief 🥀</small></span>
+    </a>
+    <div class="topbar-actions">
+      <span class="privacy-pill"><i></i> Hope unavailable 🪦</span>
+      <button class="icon-button" id="soundToggle" type="button" aria-pressed="true" aria-label="Toggle sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48a4.5 4.5 0 0 0 2-3.74Zm0-8v2.06a7 7 0 0 1 0 11.88V20a9 9 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="doom-ticker" aria-label="Department status"><div>💀 STATUS: EMOTIONALLY UNPROFITABLE <span>•</span> 🥀 HOPE INDEX: DELISTED <span>•</span> 📉 DIGNITY FUTURES: FALLING <span>•</span> 🪦 USEFUL OUTCOMES: 0</div></div>
+  <div class="emoji-rain" id="emojiRain" aria-hidden="true"></div>
+
+  <main id="main">
+    <section class="input-screen" id="inputScreen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>CASE INTAKE</span><span id="caseNumber">#AIBI-2026-0911</span></div>
+        <h1>They took 47 seconds. <em>We prepared the funeral.</em></h1>
+        <p class="lede">Submit a perfectly normal chat. We will misinterpret every pause, depreciate your dignity in real time, and produce enough paperwork to ruin a relationship that was probably fine. 💀</p>
+        <div class="hero-proof">
+          <div><strong>19.0003</strong><span>overreaction signals</span></div>
+          <div><strong>9</strong><span>crisis personalities</span></div>
+          <div><strong>0</strong><span>useful outcomes</span></div>
+        </div>
+        <div class="lab-visual" aria-label="Illustration of the analysis pipeline">
+          <div class="scan-line"></div>
+          <div class="lab-row"><span class="lab-index">01</span><span>Micro-delay catastrophization</span><b>READY 💀</b></div>
+          <div class="lab-row"><span class="lab-index">02</span><span>Dignity depreciation</span><b>FALLING 📉</b></div>
+          <div class="lab-row"><span class="lab-index">03</span><span>Emoji autopsy</span><b>OPEN 🥀</b></div>
+          <div class="lab-row muted"><span class="lab-index">04</span><span>Hope liquidation</span><b>ARMED 🪦</b></div>
+        </div>
+      </div>
+
+      <section class="intake-panel" aria-labelledby="intakeTitle">
+        <div class="panel-heading">
+          <div><span class="step-label">01 / UNNECESSARY ESCALATION</span><h2 id="intakeTitle">Turn nothing into a federal case</h2></div>
+          <span class="secure-badge">PRIVATE</span>
+        </div>
+
+        <div class="source-tabs" role="tablist" aria-label="Evidence source">
+          <button class="source-tab active" type="button" role="tab" aria-selected="true" data-source="paste">Paste chat</button>
+          <button class="source-tab" type="button" role="tab" aria-selected="false" data-source="file">Upload export</button>
+          <button class="source-tab" type="button" role="tab" aria-selected="false" data-source="screenshot">Screenshot OCR</button>
+        </div>
+
+        <div class="source-pane active" data-pane="paste">
+          <label for="chatInput">Conversation transcript</label>
+          <textarea id="chatInput" spellcheck="false" placeholder="10/09/2026, 7:42 PM - You: Are we still meeting tonight?&#10;10/09/2026, 7:43 PM - You: Hello?&#10;11/09/2026, 11:52 AM - Them: haha sorry"></textarea>
+          <div class="textarea-meta"><span id="inputStats">0 messages detected</span><button type="button" class="text-button" id="clearInput">Clear</button></div>
+        </div>
+
+        <div class="source-pane" data-pane="file">
+          <label class="drop-zone" for="fileInput">
+            <input id="fileInput" type="file" accept=".txt,text/plain">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0-12 4 4m-4-4L8 7M5 14v5h14v-5"/></svg>
+            <strong>Drop a WhatsApp export</strong>
+            <span>Choose “Without media” · TXT up to 10 MB</span>
+          </label>
+          <div class="file-state" id="fileState" hidden></div>
+        </div>
+
+        <div class="source-pane" data-pane="screenshot">
+          <label class="drop-zone visual-drop" for="imageInput">
+            <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp">
+            <div class="ocr-frame"><span></span><span></span><span></span><span></span></div>
+            <strong>Upload chat screenshot</strong>
+            <span>OCR loads on demand · you can correct the result</span>
+          </label>
+          <div class="image-stage" id="imageStage" hidden>
+            <img id="imagePreview" alt="Uploaded chat screenshot preview">
+            <div><b id="imageName">Evidence image</b><span id="ocrState">Ready for OCR</span><button class="secondary-button" id="runOcr" type="button">Extract text</button></div>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <label>Relationship context
+            <select id="contextSelect">
+              <option value="crush">🥀 Crush / situationship</option>
+              <option value="friendship">🤡 Friendship</option>
+              <option value="relationship">💔 Relationship</option>
+              <option value="group">🫠 Group chat</option>
+              <option value="workplace">📉 Workplace</option>
+            </select>
+          </label>
+          <label>Which sender is you?
+            <select id="selfSelect"><option value="">Detect from chat</option></select>
+          </label>
+          <label>Catastrophe sensitivity
+            <select id="sensitivitySelect">
+              <option value="1">Reasonable (why are you here?)</option>
+              <option value="1.5">Dramatic 🥀</option>
+              <option value="2.2" selected>Doomsday — every second hurts 💀</option>
+              <option value="3">Malayalam serial finale 😭</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <label class="switch"><input id="urgentToggle" type="checkbox"><span></span><b>Message was urgent</b></label>
+          <label class="switch"><input id="redactToggle" type="checkbox" checked><span></span><b>Redact names</b></label>
+          <label class="switch"><input id="rainToggle" type="checkbox" checked><span></span><b>Depressive emoji weather</b></label>
+        </div>
+
+        <div class="sample-strip">
+          <span>Or load classified evidence:</span>
+          <button type="button" data-sample="balanced">🙂 Suspiciously healthy</button>
+          <button type="button" data-sample="suspicious">🥀 Tiny tragedy</button>
+          <button type="button" data-sample="catastrophic">💀 State funeral</button>
+        </div>
+
+        <button class="primary-button" id="analyzeButton" type="button">
+          <span>Calculate a tragedy from nothing 💀</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <p class="disclaimer">Scientifically unhelpful. Emotionally expensive. Legally just a joke. 🪦</p>
+      </section>
+    </section>
+
+    <section class="scan-screen" id="scanScreen" hidden aria-live="polite">
+      <div class="scanner-shell">
+        <div class="scanner-header"><span>CASE ANALYSIS</span><span id="scanCase">#AIBI</span></div>
+        <div class="orbital" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core">AI</div></div>
+        <h2 id="scanHeadline">Reconstructing the timeline</h2>
+        <p id="scanDetail">Normalizing timestamps and conversational turns…</p>
+        <div class="progress-track"><span id="scanProgress"></span></div>
+        <div class="scan-log" id="scanLog"></div>
+      </div>
+    </section>
+
+    <section class="results-screen" id="resultsScreen" hidden>
+      <div class="results-topline">
+        <button class="back-button" id="newCase" type="button"><span>←</span> New case</button>
+        <div class="result-nav" role="tablist" aria-label="Result views">
+          <button class="result-tab active" data-view="overview" role="tab" aria-selected="true">Overview</button>
+          <button class="result-tab" data-view="evidence" role="tab" aria-selected="false">Evidence</button>
+          <button class="result-tab" data-view="courtroom" role="tab" aria-selected="false">Courtroom ⚖</button>
+          <button class="result-tab" data-view="obituary" role="tab" aria-selected="false">Obituary 🪦</button>
+          <button class="result-tab" data-view="simulator" role="tab" aria-selected="false">Simulator 💀</button>
+          <button class="result-tab" data-view="method" role="tab" aria-selected="false">Method</button>
+        </div>
+        <div class="results-actions">
+          <button class="secondary-button" id="exportJson" type="button">Export data</button>
+          <button class="secondary-button" id="panicFinale" type="button">Final panic</button>
+          <button class="primary-small" id="shareVerdict" type="button">Save verdict</button>
+        </div>
+      </div>
+
+      <div class="result-view active" data-view-panel="overview">
+        <section class="verdict-hero">
+          <div class="verdict-copy">
+            <div class="eyebrow"><span id="verdictCase">CASE VERDICT</span><span id="evidenceGrade">EVIDENCE GRADE B</span></div>
+            <h2 id="verdictTitle">Conversational negligence detected.</h2>
+            <p id="verdictSubtitle">The evidence suggests an unusually high concentration of silence per unit of effort.</p>
+            <div class="mode-switch" id="modeSwitch" role="group" aria-label="Verdict personality">
+              <button class="active" data-mode="scientific">Scientific</button>
+              <button data-mode="cope">Cope</button>
+              <button data-mode="brutal">Brutal</button>
+              <button data-mode="lawyer">Lawyer</button>
+              <button data-mode="corporate">Corporate</button>
+              <button data-mode="astrology">Astrology</button>
+              <button data-mode="therapist">Therapist</button>
+              <button data-mode="funeral">Funeral 🪦</button>
+              <button data-mode="emergency">Emergency 🚨</button>
+            </div>
+            <blockquote id="modeNarration"></blockquote>
+            <div class="confidence-line"><span>Evidence quality</span><div><i id="qualityBar"></i></div><b id="qualityValue">—</b></div>
+          </div>
+          <div class="score-stage">
+            <div class="score-ring" id="scoreRing"><div><span id="scoreValue">0.0</span><small>CATASTROPHIC<br>ABANDONMENT INDEX™</small></div></div>
+            <div class="score-label" id="scoreLabel">CALCULATING</div>
+            <p>Model <code>IGN-1.0</code> · Deterministic</p>
+          </div>
+        </section>
+
+        <section class="metric-grid">
+          <article><span>Median reply</span><strong id="medianMetric">—</strong><small id="medianContext">Across detected turns</small></article>
+          <article><span>Longest silence</span><strong id="silenceMetric">—</strong><small id="silenceContext">Between replies</small></article>
+          <article><span>Your effort share</span><strong id="effortMetric">—</strong><small id="effortContext">Words, messages, starts</small></article>
+          <article><span>Dignity remaining</span><strong id="questionMetric">—</strong><small id="questionContext">Non-renewable resource</small></article>
+        </section>
+
+        <section class="situation-banner">
+          <div class="situation-emoji" id="situationEmoji">🥀</div>
+          <div><span id="situationLabel">SITUATION-SPECIFIC DAMAGE</span><h3 id="situationTitle">Delusion reserve critically low</h3><p id="situationCopy">Contextual catastrophe is being prepared.</p></div>
+          <strong id="situationMetric">—</strong>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="chart-card wide">
+            <div class="card-heading"><div><span>MICRO-TRAGEDY RECONSTRUCTION</span><h3>Milliseconds of emotional ruin 📉</h3></div><b id="latencyCallout">—</b></div>
+            <canvas id="latencyChart" height="220" role="img" aria-label="Reply latency timeline"></canvas>
+          </article>
+          <article class="chart-card">
+            <div class="card-heading"><div><span>DIGNITY LIQUIDATION</span><h3>Who is carrying this corpse? ⚰️</h3></div></div>
+            <div class="effort-duel">
+              <div class="person-line"><span>You</span><b id="selfEffortLabel">—</b></div>
+              <div class="duel-bar"><i id="selfEffortBar"></i><i id="otherEffortBar"></i></div>
+              <div class="person-line"><span>Other party</span><b id="otherEffortLabel">—</b></div>
+            </div>
+            <div class="effort-details" id="effortDetails"></div>
+          </article>
+          <article class="chart-card">
+            <div class="card-heading"><div><span>HOPE WEATHER</span><h3>Brief sightings of human contact 🕯️</h3></div><b id="peakTime">—</b></div>
+            <div class="heatmap" id="heatmap" aria-label="Reply activity heatmap"></div>
+            <div class="heatmap-axis"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>11p</span></div>
+          </article>
+        </section>
+      </div>
+
+      <div class="result-view" data-view-panel="evidence">
+        <section class="section-intro"><span>02 / NEEDLESSLY DETAILED SUFFERING</span><h2>Every millisecond has been made personal. 💀</h2><p>A normal delay has been expanded into several administratively distinct forms of abandonment.</p></section>
+        <div class="evidence-layout">
+          <div class="evidence-list" id="evidenceList"></div>
+          <aside class="case-summary"><span>CASE FILE</span><h3 id="caseSummaryTitle">Evidence summary</h3><dl id="caseSummary"></dl></aside>
+        </div>
+      </div>
+
+      <div class="result-view" data-view-panel="courtroom">
+        <section class="court-hero"><span>THE COURT OF UNREASONABLE CONCLUSIONS ⚖️</span><h2>You v. A 47-second delay</h2><p>All rise. Dignity has left the courtroom.</p><button class="gavel-button" id="deliverVerdict" type="button">Deliver the verdict <span>⚖</span></button></section>
+        <div class="court-columns">
+          <article class="court-card prosecution"><span>PROSECUTION</span><h3>The case for intentional silence</h3><ol id="prosecutionList"></ol></article>
+          <article class="court-card defense"><span>DEFENSE</span><h3>Reasonable doubt remains</h3><ol id="defenseList"></ol></article>
+        </div>
+        <div class="court-verdict" id="courtVerdict"><span>FINAL RULING</span><h3 id="courtRuling">Awaiting the gavel</h3><p id="courtReason">Review the exhibits, then deliver the verdict.</p></div>
+      </div>
+
+      <div class="result-view" data-view-panel="obituary">
+        <section class="obituary-hero">
+          <span>IN UNNECESSARY MEMORIAM 🥀</span>
+          <div class="obituary-icon">🪦</div>
+          <h2 id="obituaryTitle">Here lies a perfectly normal conversation.</h2>
+          <p id="obituaryDates">Born recently · Declared dead almost immediately</p>
+          <blockquote id="obituaryQuote">“They took slightly longer than expected.”</blockquote>
+          <button class="gavel-button" id="mournButton" type="button">Begin excessive mourning 😭</button>
+        </section>
+        <div class="grief-grid" id="griefGrid"></div>
+        <section class="death-certificate">
+          <span>OFFICIAL CERTIFICATE OF DIGITAL DEMISE</span>
+          <h3 id="causeOfDeath">Cause of death: a minor scheduling conflict</h3>
+          <p id="obituaryBody">This conversation is survived by several unread drafts, one overused crying emoji, and a dignity balance approaching zero.</p>
+          <div><b id="obituaryScore">0.000000%</b><small>PROBABILITY WE OVERREACTED</small></div>
+        </section>
+      </div>
+      <div class="result-view" data-view-panel="simulator">
+        <section class="section-intro"><span>DIGNITY DERIVATIVES MARKET 📉</span><h2>How quickly can we make this worse?</h2><p>Speculate against your own peace using an entirely fictional double-text futures model.</p></section>
+        <div class="sim-grid">
+          <section class="sim-controls">
+            <label>Hours since your message <output id="waitOutput">8 h</output><input id="waitSlider" type="range" min="0" max="72" value="8"></label>
+            <label>Message length <output id="lengthOutput">24 chars</output><input id="lengthSlider" type="range" min="1" max="240" value="24"></label>
+            <label>Emoji count <output id="emojiOutput">1</output><input id="emojiSlider" type="range" min="0" max="12" value="1"></label>
+            <label>Desperation level <output id="desperationOutput">38%</output><input id="desperationSlider" type="range" min="0" max="100" value="38"></label>
+            <label class="switch large"><input id="helloToggle" type="checkbox"><span></span><b>Include “hello??”</b></label>
+          </section>
+          <section class="sim-result">
+            <span>SIMULATED OUTCOME</span>
+            <div class="sim-score"><strong id="simDamage">63</strong><small>EMOTIONAL<br>DAMAGE</small></div>
+            <h3 id="simRecommendation">Wait. Protect the remaining dignity.</h3>
+            <p id="simExplanation">The expected reply benefit does not currently justify the second-message exposure.</p>
+            <div class="sim-bars"><label>Reply probability <span id="replyProb">—</span><i><b id="replyBar"></b></i></label><label>Regret probability <span id="regretProb">—</span><i><b id="regretBar"></b></i></label></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="result-view" data-view-panel="method">
+        <section class="section-intro"><span>OVER-CALCULATION DEPARTMENT 🧮</span><h2>Six decimals. Zero wisdom.</h2><p>We applied industrial-grade mathematics to the emotional equivalent of someone going to the bathroom.</p></section>
+        <div class="method-grid">
+          <article><span>35%</span><h3>Delay pattern</h3><p>Median, p90, and extreme gaps between conversational turns.</p></article>
+          <article><span>20%</span><h3>Question avoidance</h3><p>Questions with no later response in the observed window.</p></article>
+          <article><span>15%</span><h3>Consecutive messages</h3><p>Double, triple, and increasingly brave follow-ups.</p></article>
+          <article><span>10%</span><h3>Effort imbalance</h3><p>Share of words, messages, and session initiations.</p></article>
+          <article><span>10%</span><h3>Dry-reply intensity</h3><p>Very short replies and a small transparent dry-token list.</p></article>
+          <article><span>10%</span><h3>Conversation decay</h3><p>Change in reply speed and reply length over the observed period.</p></article>
+        </div>
+        <div class="formula-card"><span>IGN-1.0</span><code>score = 100 / (1 + e<sup>−z</sup>)</code><p>Evidence quality is reported separately using timestamp coverage, sample size, and input confidence.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="verdict-flash" id="verdictFlash" aria-hidden="true"><div><span>⚖</span><b id="flashText">GUILTY</b><small>WITH PLAUSIBLE DENIABILITY</small></div></div>
+  <script>
+(() => {
+  "use strict";
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
+  const sum = values => values.reduce((a, b) => a + b, 0);
+  const median = values => {
+    if (!values.length) return 0;
+    const sorted = [...values].sort((a, b) => a - b);
+    const middle = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+  };
+  const percentile = (values, p) => {
+    if (!values.length) return 0;
+    const sorted = [...values].sort((a, b) => a - b);
+    return sorted[Math.min(sorted.length - 1, Math.max(0, Math.ceil(p * sorted.length) - 1))];
+  };
+  const formatNumber = value => new Intl.NumberFormat("en-IN").format(Math.round(value));
+  const formatDuration = minutes => {
+    if (!Number.isFinite(minutes)) return "—";
+    if (minutes < 1) return "< 1 min";
+    if (minutes < 60) return `${Math.round(minutes)} min`;
+    if (minutes < 1440) {
+      const hours = Math.floor(minutes / 60);
+      const mins = Math.round(minutes % 60);
+      return mins ? `${hours} h ${mins} m` : `${hours} h`;
+    }
+    const days = Math.floor(minutes / 1440);
+    const hours = Math.round((minutes % 1440) / 60);
+    return hours ? `${days} d ${hours} h` : `${days} d`;
+  };
+  const escapeHtml = text => String(text ?? "").replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
+
+  const samples = {
+    balanced: `10/09/2026, 7:00 PM - You: Hey, want to grab chai tomorrow?\n10/09/2026, 7:04 PM - Them: Yes! Morning or evening?\n10/09/2026, 7:05 PM - You: Evening works. Around 5?\n10/09/2026, 7:08 PM - Them: Perfect. I'll pick the place 😊\n11/09/2026, 9:02 AM - Them: Good morning! Still on for 5?\n11/09/2026, 9:12 AM - You: Absolutely. See you then!\n11/09/2026, 4:45 PM - You: Leaving now\n11/09/2026, 4:47 PM - Them: Same, see you soon`,
+    suspicious: `08/09/2026, 6:10 PM - You: Hey, how was your day?\n08/09/2026, 6:12 PM - You: Mine was chaotic 😭\n08/09/2026, 10:48 PM - Them: lol\n09/09/2026, 8:00 AM - You: Are you coming for the event tonight?\n09/09/2026, 12:31 PM - Them: maybe\n09/09/2026, 12:33 PM - You: I need to book the tickets. Should I include you?\n09/09/2026, 7:44 PM - You: Hello?\n10/09/2026, 9:15 AM - Them: sorry busy\n10/09/2026, 9:16 AM - You: No problem. What about tomorrow?\n10/09/2026, 5:51 PM - Them: idk\n11/09/2026, 10:02 AM - You: Okay, let me know`,
+    catastrophic: `07/09/2026, 7:42 PM - You: Are we still meeting tonight?\n07/09/2026, 7:43 PM - You: I need to know before I leave\n07/09/2026, 7:45 PM - You: Hello?\n08/09/2026, 11:52 AM - Them: haha sorry\n08/09/2026, 11:53 AM - You: It's okay. Are you free today?\n08/09/2026, 6:14 PM - You: What time works?\n09/09/2026, 9:20 AM - Them: maybe\n09/09/2026, 9:21 AM - You: Can you confirm by noon?\n09/09/2026, 12:10 PM - You: Any update?\n10/09/2026, 10:48 PM - Them: k\n10/09/2026, 10:49 PM - You: K as in yes?\n11/09/2026, 6:35 PM - You: This is genuinely impressive\n11/09/2026, 9:14 PM - Them: lol`
+  };
+
+  const state = {
+    source: "paste",
+    imageFile: null,
+    messages: [],
+    analysis: null,
+    sound: true,
+    mode: "scientific",
+    caseId: `AIBI-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 9000 + 1000))}`,
+    redrawTimer: null
+  };
+
+  const elements = {
+    inputScreen: $("#inputScreen"),
+    scanScreen: $("#scanScreen"),
+    resultsScreen: $("#resultsScreen"),
+    chatInput: $("#chatInput"),
+    inputStats: $("#inputStats"),
+    selfSelect: $("#selfSelect"),
+    contextSelect: $("#contextSelect"),
+    urgentToggle: $("#urgentToggle"),
+    redactToggle: $("#redactToggle"),
+    analyzeButton: $("#analyzeButton"),
+    toast: $("#toast")
+  };
+
+  function toast(message, duration = 2400) {
+    elements.toast.textContent = message;
+    elements.toast.classList.add("show");
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => elements.toast.classList.remove("show"), duration);
+  }
+
+  function beep(type = "tick") {
+    if (!state.sound) return;
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const context = new AudioContext();
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      const settings = {
+        tick: [520, .035, .025],
+        scan: [210, .11, .035],
+        reveal: [110, .48, .08],
+        gavel: [75, .18, .16],
+        good: [720, .25, .06]
+      }[type] || [420, .08, .03];
+      oscillator.frequency.setValueAtTime(settings[0], context.currentTime);
+      if (type === "reveal") oscillator.frequency.exponentialRampToValueAtTime(48, context.currentTime + settings[1]);
+      oscillator.type = type === "good" ? "sine" : "triangle";
+      gain.gain.setValueAtTime(settings[2], context.currentTime);
+      gain.gain.exponentialRampToValueAtTime(.0001, context.currentTime + settings[1]);
+      oscillator.connect(gain).connect(context.destination);
+      oscillator.start();
+      oscillator.stop(context.currentTime + settings[1]);
+      oscillator.addEventListener("ended", () => context.close());
+    } catch (_) {
+      state.sound = false;
+      $("#soundToggle").setAttribute("aria-pressed", "false");
+    }
+  }
+
+  function parseDate(datePart, timePart) {
+    const numbers = datePart.split(/[/.\-]/).map(Number);
+    if (numbers.length !== 3 || numbers.some(Number.isNaN)) return null;
+    let day, month, year;
+    if (numbers[0] > 999) [year, month, day] = numbers;
+    else if (numbers[0] > 12) [day, month, year] = numbers;
+    else if (numbers[1] > 12) [month, day, year] = numbers;
+    else [day, month, year] = numbers;
+    if (year < 100) year += year < 70 ? 2000 : 1900;
+    const match = timePart.trim().match(/(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?/i);
+    if (!match) return null;
+    let hour = Number(match[1]);
+    const minute = Number(match[2]);
+    const second = Number(match[3] || 0);
+    const meridiem = (match[4] || "").toUpperCase();
+    if (meridiem === "PM" && hour < 12) hour += 12;
+    if (meridiem === "AM" && hour === 12) hour = 0;
+    const date = new Date(year, month - 1, day, hour, minute, second);
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function parseConversation(rawText) {
+    const lines = String(rawText || "").replace(/\u200e|\u200f/g, "").replace(/\r/g, "").split("\n");
+    const messages = [];
+    let syntheticTime = new Date(2026, 0, 1, 9, 0);
+    const datePattern = /^\[?(\d{1,4}[/.\-]\d{1,2}[/.\-]\d{1,4})\s*,?\s+(\d{1,2}:\d{2}(?::\d{2})?\s*(?:AM|PM)?)\]?\s*(?:[-–—]\s*)?([^:]+):\s*(.*)$/i;
+    const simplePattern = /^([^:]{1,60}):\s*(.+)$/;
+
+    for (const originalLine of lines) {
+      const line = originalLine.trimEnd();
+      if (!line.trim()) continue;
+      const dateMatch = line.match(datePattern);
+      if (dateMatch) {
+        const parsed = parseDate(dateMatch[1], dateMatch[2]);
+        const sender = dateMatch[3].trim();
+        const text = dateMatch[4].trim();
+        if (/messages and calls are end-to-end encrypted|created group|added you|changed the subject|changed this group's icon/i.test(text)) continue;
+        messages.push({ id: `m${messages.length + 1}`, sender, text, date: parsed || new Date(syntheticTime), hasTimestamp: Boolean(parsed), source: state.source });
+        syntheticTime = new Date((parsed || syntheticTime).getTime() + 120000);
+        continue;
+      }
+      const simpleMatch = line.match(simplePattern);
+      if (simpleMatch && !/^https?/i.test(line)) {
+        messages.push({ id: `m${messages.length + 1}`, sender: simpleMatch[1].trim(), text: simpleMatch[2].trim(), date: new Date(syntheticTime), hasTimestamp: false, source: state.source });
+        syntheticTime = new Date(syntheticTime.getTime() + 120000);
+        continue;
+      }
+      if (messages.length) messages[messages.length - 1].text += `\n${line.trim()}`;
+    }
+    return messages.filter(message => message.sender && message.text);
+  }
+
+  function refreshInputStats() {
+    const messages = parseConversation(elements.chatInput.value);
+    const participants = [...new Set(messages.map(message => message.sender))];
+    elements.inputStats.textContent = `${messages.length} message${messages.length === 1 ? "" : "s"} · ${participants.length} sender${participants.length === 1 ? "" : "s"}`;
+    const selected = elements.selfSelect.value;
+    elements.selfSelect.innerHTML = `<option value="">Detect from chat</option>${participants.map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("")}`;
+    if (participants.includes(selected)) elements.selfSelect.value = selected;
+    else {
+      const likelySelf = participants.find(name => /^(you|me|myself)$/i.test(name));
+      if (likelySelf) elements.selfSelect.value = likelySelf;
+    }
+  }
+
+  function words(text) {
+    return String(text || "").trim().split(/\s+/).filter(Boolean);
+  }
+
+  function analyze(messages, selfName) {
+    const ordered = [...messages].sort((a, b) => a.date - b.date);
+    const participants = [...new Set(ordered.map(message => message.sender))];
+    const otherNames = participants.filter(name => name !== selfName);
+    const isSelf = message => message.sender === selfName;
+    const isOther = message => !isSelf(message);
+
+    const turns = [];
+    for (const message of ordered) {
+      const role = isSelf(message) ? "self" : "other";
+      const previous = turns[turns.length - 1];
+      if (previous && previous.role === role) {
+        previous.messages.push(message);
+        previous.end = message.date;
+      } else {
+        turns.push({ role, sender: message.sender, start: message.date, end: message.date, messages: [message] });
+      }
+    }
+
+    const replyEvents = [];
+    for (let index = 1; index < turns.length; index += 1) {
+      if (turns[index - 1].role === "self" && turns[index].role === "other") {
+        const minutes = Math.max(0, (turns[index].start - turns[index - 1].end) / 60000);
+        replyEvents.push({ minutes, from: turns[index - 1], to: turns[index], date: turns[index].start });
+      }
+    }
+    const replyMinutes = replyEvents.map(event => event.minutes);
+
+    const selfMessages = ordered.filter(isSelf);
+    const otherMessages = ordered.filter(isOther);
+    const selfWords = sum(selfMessages.map(message => words(message.text).length));
+    const otherWords = sum(otherMessages.map(message => words(message.text).length));
+    const selfChars = sum(selfMessages.map(message => message.text.length));
+    const otherChars = sum(otherMessages.map(message => message.text.length));
+
+    const sessions = [];
+    for (const message of ordered) {
+      const previous = ordered[ordered.indexOf(message) - 1];
+      if (!previous || (message.date - previous.date) / 60000 > 360) sessions.push(message);
+    }
+    const selfStarts = sessions.filter(isSelf).length;
+    const otherStarts = Math.max(0, sessions.length - selfStarts);
+
+    const messageShare = selfMessages.length / Math.max(1, ordered.length);
+    const wordShare = selfWords / Math.max(1, selfWords + otherWords);
+    const startShare = selfStarts / Math.max(1, sessions.length);
+    const effortShare = clamp(messageShare * .35 + wordShare * .45 + startShare * .2);
+
+    const questions = selfMessages.filter(message => /\?/.test(message.text));
+    const unansweredQuestions = questions.filter(question => {
+      const nextOther = ordered.find(message => isOther(message) && message.date > question.date);
+      return !nextOther || (nextOther.date - question.date) / 60000 > 1440;
+    });
+
+    const selfTurns = turns.filter(turn => turn.role === "self");
+    const doubleTextTurns = selfTurns.filter(turn => turn.messages.length >= 2);
+    const doubleTextMessages = sum(doubleTextTurns.map(turn => turn.messages.length - 1));
+    const dryTokens = new Set(["k", "ok", "okay", "kk", "hm", "hmm", "lol", "haha", "maybe", "idk", "sure", "fine", "nice", "yep", "nope", "cool"]);
+    const dryReplies = otherMessages.filter(message => {
+      const clean = message.text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+      return dryTokens.has(clean) || words(clean).length <= 2;
+    });
+    const emojiPattern = /\p{Extended_Pictographic}/gu;
+    const selfEmojiCount = sum(selfMessages.map(message => (message.text.match(emojiPattern) || []).length));
+    const otherEmojiCount = sum(otherMessages.map(message => (message.text.match(emojiPattern) || []).length));
+
+    const firstHalfReplies = replyEvents.slice(0, Math.ceil(replyEvents.length / 2)).map(event => event.minutes);
+    const secondHalfReplies = replyEvents.slice(Math.ceil(replyEvents.length / 2)).map(event => event.minutes);
+    const firstHalfOther = otherMessages.slice(0, Math.ceil(otherMessages.length / 2));
+    const secondHalfOther = otherMessages.slice(Math.ceil(otherMessages.length / 2));
+    const firstLength = firstHalfOther.length ? sum(firstHalfOther.map(message => words(message.text).length)) / firstHalfOther.length : 0;
+    const secondLength = secondHalfOther.length ? sum(secondHalfOther.map(message => words(message.text).length)) / secondHalfOther.length : firstLength;
+    const speedDecay = firstHalfReplies.length && secondHalfReplies.length ? clamp((median(secondHalfReplies) - median(firstHalfReplies)) / Math.max(30, median(firstHalfReplies) * 3), 0, 1) : 0;
+    const lengthDecay = firstLength ? clamp((firstLength - secondLength) / firstLength, 0, 1) : 0;
+    const conversationDecay = speedDecay * .65 + lengthDecay * .35;
+
+    const medReply = median(replyMinutes);
+    const p90Reply = percentile(replyMinutes, .9);
+    const longestSilence = replyMinutes.length ? Math.max(...replyMinutes) : 0;
+    const delayNorm = clamp(Math.log1p(medReply) / Math.log1p(720));
+    const extremeNorm = clamp(Math.log1p(longestSilence) / Math.log1p(2880));
+    const unansweredRate = questions.length ? unansweredQuestions.length / questions.length : 0;
+    const doubleRate = doubleTextMessages / Math.max(1, selfMessages.length);
+    const effortImbalance = clamp((effortShare - .5) / .5);
+    const dryRate = dryReplies.length / Math.max(1, otherMessages.length);
+    const initiationImbalance = clamp((startShare - .5) / .5);
+    const urgency = elements.urgentToggle.checked ? 1 : 0;
+
+    const sensitivity = Number($("#sensitivitySelect").value || 2.2);
+    const microDelayNorm = replyMinutes.length ? clamp(Math.log1p(Math.max(.01, medReply)) / Math.log1p(12)) : 0;
+    const z = -1.35
+      + 1.28 * delayNorm
+      + .55 * extremeNorm
+      + 1.08 * unansweredRate
+      + .78 * clamp(doubleRate * 1.8)
+      + .72 * effortImbalance
+      + .62 * dryRate
+      + .42 * initiationImbalance
+      + .40 * conversationDecay
+      + .34 * urgency
+      + .72 * microDelayNorm
+      + .31 * (sensitivity - 1);
+    const rawScore = 100 / (1 + Math.exp(-z));
+    const minimumDrama = replyMinutes.length ? 48 + 38 * microDelayNorm + 4 * (sensitivity - 1) : 12;
+    const score = clamp(Math.max(rawScore, minimumDrama), 1, 99.999999);
+    const dignityRemaining = clamp(100 - score * .91 - doubleTextMessages * 2.7, 0, 100);
+    const overthinkingDebt = sum(replyMinutes.map(minutes => (Math.pow(1.006, Math.min(minutes, 720)) - 1) * 3.17));
+    const nanoIgnored = medReply * 60 * 1e9;
+    const microTragedies = replyMinutes.filter(minutes => minutes > 0).length;
+
+    const timestampCoverage = ordered.filter(message => message.hasTimestamp).length / Math.max(1, ordered.length);
+    const sampleSufficiency = clamp(ordered.length / 18);
+    const participantQuality = participants.length >= 2 ? 1 : .2;
+    const sourceQuality = state.source === "screenshot" ? .6 : 1;
+    const quality = Math.round(100 * (.42 * timestampCoverage + .28 * sampleSufficiency + .18 * participantQuality + .12 * sourceQuality));
+
+    const longestEvent = replyEvents.reduce((best, event) => !best || event.minutes > best.minutes ? event : best, null);
+    const evidence = [
+      longestEvent && { title: `${formatDuration(longestEvent.minutes)} reply gap`, detail: `The other party replied after ${formatDuration(longestEvent.minutes)} of observable silence.`, severity: longestEvent.minutes > 720 ? "SEVERE" : longestEvent.minutes > 180 ? "NOTABLE" : "MINOR", weight: longestEvent.minutes },
+      { title: `${unansweredQuestions.length} unanswered question${unansweredQuestions.length === 1 ? "" : "s"}`, detail: questions.length ? `${Math.round(unansweredRate * 100)}% of your direct questions exceeded the response window.` : "No direct questions were detected in your messages.", severity: unansweredRate > .5 ? "SEVERE" : unansweredRate > 0 ? "NOTABLE" : "CLEAR", weight: unansweredRate * 1000 },
+      { title: `${Math.round(effortShare * 100)}% of visible effort came from you`, detail: `You sent ${selfMessages.length} messages and ${formatNumber(selfWords)} words versus ${otherMessages.length} messages and ${formatNumber(otherWords)} words.`, severity: effortShare > .72 ? "SEVERE" : effortShare > .58 ? "NOTABLE" : "BALANCED", weight: effortShare * 800 },
+      { title: `${doubleTextTurns.length} double-text incident${doubleTextTurns.length === 1 ? "" : "s"}`, detail: `${doubleTextMessages} follow-up message${doubleTextMessages === 1 ? "" : "s"} arrived before a response.`, severity: doubleTextMessages > 3 ? "SEVERE" : doubleTextMessages ? "NOTABLE" : "CLEAR", weight: doubleTextMessages * 90 },
+      { title: `${Math.round(dryRate * 100)}% dry-reply intensity`, detail: `${dryReplies.length} of ${otherMessages.length} replies were extremely short or matched a transparent dry-token rule.`, severity: dryRate > .65 ? "SEVERE" : dryRate > .35 ? "NOTABLE" : "LOW", weight: dryRate * 700 },
+      { title: `${Math.round(conversationDecay * 100)}% conversation decay`, detail: "Recent replies were compared with earlier reply speed and message length.", severity: conversationDecay > .55 ? "SEVERE" : conversationDecay > .2 ? "NOTABLE" : "STABLE", weight: conversationDecay * 600 },
+      { title: `${formatNumber(nanoIgnored)} nano-ignored units`, detail: `Even the median delay was converted into nanoseconds because minutes were not upsetting enough.`, severity: "ABSURD", weight: 850 },
+      { title: `${selfEmojiCount}:${otherEmojiCount} emoji distress ratio`, detail: `You supplied ${selfEmojiCount} emotional pictogram${selfEmojiCount === 1 ? "" : "s"}; the other party supplied ${otherEmojiCount}.`, severity: selfEmojiCount > otherEmojiCount ? "🥀 UNEVEN" : "🤡 INCONCLUSIVE", weight: 520 },
+      { title: `${overthinkingDebt.toFixed(3)} units of compounded overthinking debt`, detail: "Every minute of silence accrued fictional emotional interest at an irresponsible rate.", severity: "📉 DEFAULT", weight: 780 }
+    ].filter(Boolean).sort((a, b) => b.weight - a.weight);
+
+    return {
+      caseId: state.caseId,
+      context: elements.contextSelect.value,
+      selfName,
+      otherNames,
+      participants,
+      messages: ordered,
+      turns,
+      replyEvents,
+      score,
+      quality,
+      medianReply: medReply,
+      p90Reply,
+      longestSilence,
+      effortShare,
+      messageShare,
+      wordShare,
+      startShare,
+      selfMessages,
+      otherMessages,
+      selfWords,
+      otherWords,
+      selfChars,
+      otherChars,
+      sessions,
+      selfStarts,
+      otherStarts,
+      questions,
+      unansweredQuestions,
+      doubleTextTurns,
+      doubleTextMessages,
+      dryReplies,
+      dryRate,
+      conversationDecay,
+      sensitivity,
+      dignityRemaining,
+      overthinkingDebt,
+      nanoIgnored,
+      microTragedies,
+      selfEmojiCount,
+      otherEmojiCount,
+      evidence,
+      timestampCoverage,
+      source: state.source
+    };
+  }
+
+  function verdictFor(score) {
+    if (score < 35) return { label: "UNNATURALLY FAST", title: "They replied. This is probably a trap. 🤨", subtitle: "Healthy communication has been detected and will be investigated as suspicious behavior.", color: "var(--purple)" };
+    if (score < 58) return { label: "PRELIMINARY FUNERAL", title: "A manageable tragedy has occurred. 🥀", subtitle: "The delay was slight, but we have already notified the relatives and ordered flowers.", color: "var(--blue)" };
+    if (score < 76) return { label: "EMOTIONAL RECESSION", title: "Hope has entered a bear market. 📉", subtitle: "A normal scheduling delay has been converted into several irreversible financial metaphors.", color: "var(--amber)" };
+    if (score < 90) return { label: "STATE FUNERAL", title: "Conversational negligence detected. 💀", subtitle: "The evidence shows enough silence to justify candles, black clothing, and a needless press conference.", color: "var(--red)" };
+    return { label: "EXTINCTION EVENT", title: "This chat is survived by your dignity. Barely. 🪦", subtitle: "The Department has declared a total collapse of vibes with six-decimal certainty.", color: "var(--red)" };
+  }
+
+  function narrationFor(mode, analysis) {
+    const score = analysis.score.toFixed(6);
+    const med = formatDuration(analysis.medianReply);
+    const effort = Math.round(analysis.effortShare * 100);
+    const unanswered = analysis.unansweredQuestions.length;
+    const debt = analysis.overthinkingDebt.toFixed(3);
+    const context = analysis.context;
+    const situational = {
+      crush: `romantic liquidity has evaporated and the delusion reserve is operating on fumes`,
+      friendship: `meme reciprocity is below treaty requirements and the friendship warranty is under review`,
+      relationship: `affectional EBITDA has missed guidance for the third imaginary quarter`,
+      group: `your public-humiliation radius now includes everyone who saw the double text`,
+      workplace: `the emotional SLA was breached even though no emotional SLA has ever existed`
+    }[context];
+    const lines = {
+      scientific: `After examining ${analysis.messages.length} messages, ${analysis.nanoIgnored.toFixed(0)} nano-ignored units, ${analysis.selfEmojiCount + analysis.otherEmojiCount} pictographic distress objects, and ${debt} units of compounded overthinking debt, model IGN-2.000003 calculates a Catastrophic Abandonment Index of ${score}%. ${situational}. Margin of dramatic error: ±0.000001 funeral. 🧮💀`,
+      cope: `They did not ignore you. Their phone was briefly adopted by a monastery, placed in airplane mode, and appointed regional manager. The ${med} median delay is therefore a beautiful sign that destiny has terrible network coverage. 🥹✨`,
+      brutal: `${effort}% of the effort came from you. You are not having a conversation; you are manually keeping a deceased notification alive with chest compressions and emojis. 🤡⚰️`,
+      lawyer: `EXHIBIT A: ${unanswered} unresolved question${unanswered === 1 ? "" : "s"}. EXHIBIT B: ${med} median silence. EXHIBIT C: dignity valued at ${analysis.dignityRemaining.toFixed(3)}%. The defense requests common sense. Request denied. ⚖️💀`,
+      corporate: `Your emotional request has been deprioritized due to a strategic absence of enthusiasm. Current reply SLA: ${med}. Dignity runway: ${analysis.dignityRemaining.toFixed(2)}%. Leadership recommends restructuring the situationship and laying off two drafts. 📉🏢`,
+      astrology: `Mercury entered read-receipt retrograde while Saturn opposed the typing indicator. ${unanswered} question${unanswered === 1 ? " is" : "s are"} trapped in the twelfth house. Do not double text until the moon completes a software update. 🔮🥀`,
+      therapist: `The data cannot identify intention, which is inconvenient because this mode was supposed to overreact. A normal response would be to communicate calmly. We have rejected that option for being useful. 🫠`,
+      funeral: `We gather today to mourn a conversation that was last active ${med} too long ago. It leaves behind ${analysis.doubleTextMessages} brave follow-ups, ${unanswered} unanswered questions, and one user who deserved better—or at least faster Wi-Fi. 🪦🥀🕯️`,
+      emergency: `🚨 CODE BLACK: A REPLY DELAY HAS OCCURRED. Deploy the grief team. Freeze all dignity assets. Alert three friends who did not ask. Probability of unnecessary escalation: 99.999997%. 🚑💀📢`
+    };
+    return lines[mode] || lines.scientific;
+  }
+
+  function showScreen(name) {
+    elements.inputScreen.hidden = name !== "input";
+    elements.scanScreen.hidden = name !== "scan";
+    elements.resultsScreen.hidden = name !== "results";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  async function runScan(analysis) {
+    showScreen("scan");
+    $("#scanCase").textContent = `#${analysis.caseId}`;
+    const stages = [
+      ["Reconstructing the timeline", "Normalizing timestamps and conversational turns…", 18, "TIMELINE", `${analysis.messages.length} EVENTS`],
+      ["Measuring conversational effort", "Counting words, starts, follow-ups and unresolved questions…", 43, "EFFORT AUDIT", `${Math.round(analysis.effortShare * 100)}% SELF`],
+      ["Inspecting reply behavior", "Comparing latency, dry replies and conversation decay…", 71, "BEHAVIOR MODEL", `${analysis.replyEvents.length} REPLIES`],
+      ["Calculating emotional damage", "Running deterministic model IGN-1.0…", 94, "MODEL CONFIDENCE", `${analysis.quality}% EVIDENCE`],
+      ["Verdict ready", "Preparing the court of digital communication…", 100, "FINAL SCORE", analysis.score.toFixed(1)]
+    ];
+    $("#scanLog").innerHTML = "";
+    for (let index = 0; index < stages.length; index += 1) {
+      const [headline, detail, progress, label, value] = stages[index];
+      $("#scanHeadline").textContent = headline;
+      $("#scanDetail").textContent = detail;
+      $("#scanProgress").style.width = `${progress}%`;
+      $("#scanLog").insertAdjacentHTML("beforeend", `<div><span>${label}</span><b>${value}</b></div>`);
+      beep(index === stages.length - 1 ? "reveal" : "scan");
+      await new Promise(resolve => setTimeout(resolve, index === stages.length - 1 ? 500 : 620));
+    }
+    renderResults(analysis);
+    showScreen("results");
+  }
+
+  function renderResults(analysis) {
+    const verdict = verdictFor(analysis.score);
+    $("#verdictCase").textContent = `CASE #${analysis.caseId}`;
+    $("#evidenceGrade").textContent = `EVIDENCE GRADE ${analysis.quality >= 85 ? "A" : analysis.quality >= 70 ? "B" : analysis.quality >= 50 ? "C" : "D"}`;
+    $("#verdictTitle").textContent = verdict.title;
+    $("#verdictSubtitle").textContent = verdict.subtitle;
+    $("#scoreValue").textContent = analysis.score.toFixed(6);
+    $("#scoreRing").style.setProperty("--score", analysis.score.toFixed(6));
+    $("#scoreRing").style.background = `conic-gradient(${verdict.color} ${analysis.score}%, var(--line) 0)`;
+    $("#scoreLabel").textContent = verdict.label;
+    $("#scoreLabel").style.color = verdict.color;
+    $("#qualityValue").textContent = `${analysis.quality}%`;
+    $("#qualityBar").style.width = `${analysis.quality}%`;
+    $("#medianMetric").textContent = formatDuration(analysis.medianReply);
+    $("#silenceMetric").textContent = formatDuration(analysis.longestSilence);
+    $("#effortMetric").textContent = `${Math.round(analysis.effortShare * 100)}%`;
+    $("#questionMetric").textContent = `${analysis.dignityRemaining.toFixed(2)}%`;
+    $("#medianContext").textContent = `${analysis.replyEvents.length} reply transition${analysis.replyEvents.length === 1 ? "" : "s"}`;
+    $("#silenceContext").textContent = analysis.longestSilence > 720 ? "Forensically uncomfortable" : "Longest observed reply gap";
+    $("#effortContext").textContent = `${analysis.selfMessages.length} vs ${analysis.otherMessages.length} messages`;
+    $("#questionContext").textContent = `${analysis.unansweredQuestions.length} unanswered · ${analysis.doubleTextMessages} follow-ups`;
+    $("#latencyCallout").textContent = `P90 ${formatDuration(analysis.p90Reply)}`;
+    $("#selfEffortLabel").textContent = `${Math.round(analysis.effortShare * 100)}%`;
+    $("#otherEffortLabel").textContent = `${Math.round((1 - analysis.effortShare) * 100)}%`;
+    $("#selfEffortBar").style.width = `${analysis.effortShare * 100}%`;
+    $("#otherEffortBar").style.width = `${(1 - analysis.effortShare) * 100}%`;
+    $("#effortDetails").innerHTML = [
+      ["MESSAGES", `${analysis.selfMessages.length} : ${analysis.otherMessages.length}`],
+      ["WORDS", `${analysis.selfWords} : ${analysis.otherWords}`],
+      ["STARTS", `${analysis.selfStarts} : ${analysis.otherStarts}`]
+    ].map(([label, value]) => `<div><span>${label}</span><b>${value}</b></div>`).join("");
+    state.mode = "scientific";
+    $$("#modeSwitch button").forEach(button => button.classList.toggle("active", button.dataset.mode === state.mode));
+    $("#modeNarration").textContent = narrationFor(state.mode, analysis);
+    renderSituation(analysis);
+    renderEvidence(analysis);
+    renderCourtroom(analysis);
+    renderObituary(analysis);
+    renderHeatmap(analysis);
+    updateSimulator();
+    requestAnimationFrame(() => drawLatencyChart(analysis.replyEvents));
+  }
+
+  function renderSituation(analysis) {
+    const configs = {
+      crush: { emoji: "🥀", label: "SITUATIONSHIP LIQUIDITY EVENT", title: "Delusion reserve approaching insolvency", metric: `${analysis.dignityRemaining.toFixed(2)}%`, copy: "Each minute without a reply converts optimism into a non-performing emotional asset." },
+      friendship: { emoji: "🤡", label: "FRIENDSHIP WARRANTY CLAIM", title: "Meme reciprocity treaty possibly violated", metric: `${analysis.dryReplies.length} dry`, copy: "The friendship remains functional, which is unacceptable for a useless tragedy machine." },
+      relationship: { emoji: "💔", label: "AFFECTIONAL EARNINGS MISS", title: "Romantic EBITDA below imaginary guidance", metric: `${analysis.overthinkingDebt.toFixed(1)}×`, copy: "We converted ordinary communication variance into a quarterly emotional collapse." },
+      group: { emoji: "🫠", label: "PUBLIC HUMILIATION GEOGRAPHY", title: "Double-text radius expanding", metric: `${analysis.doubleTextMessages} witnesses`, copy: "Every follow-up was assumed to be observed by the entire group and several ancestors." },
+      workplace: { emoji: "📉", label: "EMOTIONAL SLA INCIDENT", title: "Ticket closed without emotional resolution", metric: formatDuration(analysis.medianReply), copy: "A colleague behaved like a colleague. The Department has escalated this to a personal betrayal." }
+    };
+    const config = configs[analysis.context] || configs.crush;
+    $("#situationEmoji").textContent = config.emoji;
+    $("#situationLabel").textContent = config.label;
+    $("#situationTitle").textContent = config.title;
+    $("#situationMetric").textContent = config.metric;
+    $("#situationCopy").textContent = config.copy;
+  }
+
+  function renderObituary(analysis) {
+    const first = analysis.messages[0]?.date;
+    const last = analysis.messages[analysis.messages.length - 1]?.date;
+    const contextNoun = { crush: "situationship", friendship: "friendship", relationship: "relationship", group: "group-chat dignity", workplace: "professional composure" }[analysis.context] || "conversation";
+    $("#obituaryTitle").textContent = `Here lies one perfectly normal ${contextNoun}.`;
+    $("#obituaryDates").textContent = `Born ${first ? first.toLocaleDateString() : "recently"} · Declared dead ${last ? last.toLocaleDateString() : "almost immediately"}`;
+    $("#obituaryQuote").textContent = `“They took ${formatDuration(analysis.medianReply)}. We chose grief.”`;
+    $("#causeOfDeath").textContent = `Cause of death: ${analysis.unansweredQuestions.length ? "an unanswered question and severe administrative overreach" : "a completely survivable reply delay"}`;
+    $("#obituaryBody").textContent = `The conversation is survived by ${analysis.doubleTextMessages} follow-up messages, ${analysis.selfEmojiCount} self-supplied emojis, ${analysis.overthinkingDebt.toFixed(3)} units of fictional debt, and ${analysis.dignityRemaining.toFixed(4)}% remaining dignity.`;
+    $("#obituaryScore").textContent = `${Math.min(99.999999, 77 + analysis.sensitivity * 7.31).toFixed(6)}%`;
+    const stages = [
+      ["😐", "Denial", "Maybe notifications are off."],
+      ["😤", "Anger", "Notifications cannot be off forever."],
+      ["🥺", "Bargaining", "One tasteful meme, perhaps?"],
+      ["🥀", "Depression", "The typing indicator is a distant memory."],
+      ["🤡", "Acceptance", "Open the chat again anyway."]
+    ];
+    $("#griefGrid").innerHTML = stages.map(([emoji, title, copy]) => `<article><b>${emoji}</b><h3>${title}</h3><p>${copy}</p></article>`).join("");
+  }
+  function renderEvidence(analysis) {
+    $("#evidenceList").innerHTML = analysis.evidence.map((item, index) => `<article class="evidence-item"><span class="exhibit-id">EXH-${String(index + 1).padStart(2, "0")}</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div><span class="evidence-severity">${escapeHtml(item.severity)}</span></article>`).join("");
+    const summary = [
+      ["Input", analysis.source.toUpperCase()],
+      ["Messages", analysis.messages.length],
+      ["Time coverage", `${Math.round(analysis.timestampCoverage * 100)}%`],
+      ["Reply events", analysis.replyEvents.length],
+      ["Dry replies", `${Math.round(analysis.dryRate * 100)}%`],
+      ["Model", "IGN-1.0"]
+    ];
+    $("#caseSummaryTitle").textContent = `Case #${analysis.caseId}`;
+    $("#caseSummary").innerHTML = summary.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
+  }
+
+  function renderCourtroom(analysis) {
+    const prosecution = analysis.evidence.slice(0, 4).map(item => item.detail);
+    const defense = [];
+    if (analysis.quality < 85) defense.push(`Evidence quality is ${analysis.quality}%; some timestamps or context may be incomplete.`);
+    defense.push("Reply latency records behavior but cannot establish intention.");
+    if (!elements.urgentToggle.checked) defense.push("The message was not marked urgent, increasing reasonable delay tolerance.");
+    if (analysis.messages.length < 20) defense.push(`Only ${analysis.messages.length} messages were examined; the sample remains limited.`);
+    if (analysis.effortShare < .65) defense.push("Visible conversational effort is not severely imbalanced.");
+    defense.push("Offline obligations, notification fatigue, and personal communication style remain plausible alternatives.");
+    $("#prosecutionList").innerHTML = prosecution.map(item => `<li>${escapeHtml(item)}</li>`).join("");
+    $("#defenseList").innerHTML = defense.slice(0, 4).map(item => `<li>${escapeHtml(item)}</li>`).join("");
+    $("#courtRuling").textContent = "Awaiting the gavel";
+    $("#courtReason").textContent = "Review the exhibits, then deliver the verdict.";
+  }
+
+  function renderHeatmap(analysis) {
+    const counts = Array(24).fill(0);
+    analysis.otherMessages.forEach(message => { counts[message.date.getHours()] += 1; });
+    const max = Math.max(1, ...counts);
+    const map = $("#heatmap");
+    map.innerHTML = counts.map((count, hour) => {
+      const opacity = count ? .18 + .82 * (count / max) : .04;
+      return `<i title="${hour}:00 · ${count} repl${count === 1 ? "y" : "ies"}" aria-label="${hour}:00, ${count} replies" style="background:rgba(100,168,255,${opacity.toFixed(2)})"></i>`;
+    }).join("");
+    const peakHour = counts.indexOf(Math.max(...counts));
+    $("#peakTime").textContent = analysis.otherMessages.length ? `${String(peakHour).padStart(2, "0")}:00 PEAK` : "NO DATA";
+  }
+
+  function drawLatencyChart(events) {
+    const canvas = $("#latencyChart");
+    if (!canvas || canvas.closest("[hidden]") || !canvas.offsetWidth) return;
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(300, rect.width);
+    const height = Math.max(260, rect.height || 520);
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    const ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, width, height);
+    const style = getComputedStyle(document.documentElement);
+    const colors = {
+      line: style.getPropertyValue("--line").trim(),
+      muted: style.getPropertyValue("--muted-2").trim(),
+      text: style.getPropertyValue("--text").trim(),
+      blue: style.getPropertyValue("--blue").trim(),
+      amber: style.getPropertyValue("--amber").trim()
+    };
+    const pad = { left: 58, right: 20, top: 24, bottom: 48 };
+    const plotW = width - pad.left - pad.right;
+    const plotH = height - pad.top - pad.bottom;
+    const values = events.map(event => event.minutes);
+    const data = values.length ? values : [0];
+    const maxValue = Math.max(60, ...data);
+    const scaleValue = value => Math.log1p(value) / Math.log1p(maxValue);
+
+    ctx.font = "10px SFMono-Regular, Consolas, monospace";
+    ctx.textBaseline = "middle";
+    ctx.lineWidth = 1;
+    for (let tick = 0; tick <= 4; tick += 1) {
+      const y = pad.top + plotH - plotH * (tick / 4);
+      ctx.strokeStyle = colors.line;
+      ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(width - pad.right, y); ctx.stroke();
+      const raw = Math.expm1(Math.log1p(maxValue) * tick / 4);
+      ctx.fillStyle = colors.muted;
+      ctx.textAlign = "right";
+      ctx.fillText(formatDuration(raw), pad.left - 10, y);
+    }
+    if (!events.length) {
+      ctx.fillStyle = colors.muted;
+      ctx.textAlign = "center";
+      ctx.font = "13px Inter, sans-serif";
+      ctx.fillText("No reply transitions available", pad.left + plotW / 2, pad.top + plotH / 2);
+      return;
+    }
+    const xFor = index => events.length === 1 ? pad.left + plotW / 2 : pad.left + plotW * index / (events.length - 1);
+    const yFor = value => pad.top + plotH - scaleValue(value) * plotH;
+    ctx.strokeStyle = colors.blue;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    events.forEach((event, index) => {
+      const x = xFor(index), y = yFor(event.minutes);
+      if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    events.forEach((event, index) => {
+      const x = xFor(index), y = yFor(event.minutes);
+      ctx.fillStyle = event.minutes === Math.max(...values) ? colors.amber : colors.blue;
+      ctx.beginPath(); ctx.arc(x, y, 4.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = colors.muted;
+      ctx.textAlign = "center";
+      ctx.font = "9px SFMono-Regular, Consolas, monospace";
+      ctx.fillText(`#${index + 1}`, x, height - 20);
+    });
+  }
+
+  function updateSimulator() {
+    const analysis = state.analysis;
+    if (!analysis) return;
+    const wait = Number($("#waitSlider").value);
+    const length = Number($("#lengthSlider").value);
+    const emoji = Number($("#emojiSlider").value);
+    const desperation = Number($("#desperationSlider").value);
+    const hello = $("#helloToggle").checked;
+    $("#waitOutput").textContent = `${wait} h`;
+    $("#lengthOutput").textContent = `${length} chars`;
+    $("#emojiOutput").textContent = String(emoji);
+    $("#desperationOutput").textContent = `${desperation}%`;
+    const baseRisk = analysis.score;
+    const damage = clamp((baseRisk * .62 + desperation * .42 + emoji * 3.1 + (hello ? 24 : 0) + (wait > 0 ? 8 : 0) - Math.min(wait, 24) * .08), 0, 100);
+    const reply = clamp(61 - baseRisk * .40 + Math.min(wait, 48) * .22 - desperation * .16 - (hello ? 11 : 0), 1, 88);
+    const regret = clamp(damage * .93 + (hello ? 13 : 0) + (emoji > 4 ? 7 : 0), 7, 99.999);
+    $("#simDamage").textContent = Math.round(damage);
+    $("#replyProb").textContent = `${Math.round(reply)}%`;
+    $("#regretProb").textContent = `${Math.round(regret)}%`;
+    $("#replyBar").style.width = `${reply}%`;
+    $("#regretBar").style.width = `${regret}%`;
+    let title, explanation;
+    if (damage > 78) {
+      title = "Abort mission. Preserve the remaining dignity.";
+      explanation = "This timeline produces severe second-message exposure with a high projected regret rate.";
+    } else if (wait < 4) {
+      title = "Too soon. Let the first message breathe.";
+      explanation = "The current wait time is shorter than the observed reply pattern. No escalation is justified.";
+    } else if (reply > 55 && desperation < 45) {
+      title = "Proceed carefully—without “hello??”.";
+      explanation = "A clear, useful follow-up may be defensible. Avoid adding pressure or manufacturing urgency.";
+    } else {
+      title = "Wait. Protect the remaining dignity.";
+      explanation = "The expected reply benefit does not currently justify the second-message exposure.";
+    }
+    $("#simRecommendation").textContent = title;
+    $("#simExplanation").textContent = explanation;
+  }
+
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+  }
+
+  function exportJson() {
+    if (!state.analysis) return;
+    const a = state.analysis;
+    const payload = {
+      caseId: a.caseId,
+      disclaimer: "Entertainment only. Messaging patterns do not prove intention.",
+      model: "IGN-1.0",
+      catastrophicAbandonmentIndex: Number(a.score.toFixed(6)),
+      evidenceQuality: a.quality,
+      metrics: {
+        messageCount: a.messages.length,
+        medianReplyMinutes: Number(a.medianReply.toFixed(2)),
+        p90ReplyMinutes: Number(a.p90Reply.toFixed(2)),
+        longestSilenceMinutes: Number(a.longestSilence.toFixed(2)),
+        selfEffortShare: Number(a.effortShare.toFixed(3)),
+        unansweredQuestions: a.unansweredQuestions.length,
+        doubleTextMessages: a.doubleTextMessages,
+        dryReplyRate: Number(a.dryRate.toFixed(3)),
+        conversationDecay: Number(a.conversationDecay.toFixed(3))
+      },
+      evidence: a.evidence.map(({ title, detail, severity }) => ({ title, detail, severity }))
+    };
+    downloadBlob(new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" }), `${a.caseId.toLowerCase()}-evidence.json`);
+    toast("Evidence data exported");
+  }
+
+  function saveVerdictCard() {
+    if (!state.analysis) return;
+    const a = state.analysis;
+    const verdict = verdictFor(a.score);
+    const canvas = document.createElement("canvas");
+    canvas.width = 1200; canvas.height = 630;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#0b0c0e"; ctx.fillRect(0, 0, 1200, 630);
+    ctx.strokeStyle = "#2a2e36"; ctx.lineWidth = 2; ctx.strokeRect(30, 30, 1140, 570);
+    ctx.fillStyle = "#f0ad4e"; ctx.fillRect(70, 72, 48, 48);
+    ctx.fillStyle = "#17110a"; ctx.font = "800 18px Arial"; ctx.textAlign = "center"; ctx.fillText("AI", 94, 103);
+    ctx.textAlign = "left"; ctx.fillStyle = "#f5f2eb"; ctx.font = "700 20px Arial"; ctx.fillText("AM I BEING IGNORED?", 136, 92);
+    ctx.fillStyle = "#949aa5"; ctx.font = "14px Arial"; ctx.fillText(`OFFICIAL CASE VERDICT · #${a.caseId}`, 136, 116);
+    ctx.fillStyle = "#f5f2eb"; ctx.font = "700 74px Arial"; ctx.fillText(verdict.label, 70, 250);
+    ctx.fillStyle = "#949aa5"; ctx.font = "24px Arial"; ctx.fillText(verdict.title, 72, 292);
+    ctx.fillStyle = verdict.color.includes("green") ? "#6dca9c" : a.score < 65 ? "#f0ad4e" : "#ef6a5b";
+    ctx.font = "800 178px Arial"; ctx.textAlign = "right"; ctx.fillText(a.score.toFixed(4), 1128, 278);
+    ctx.fillStyle = "#949aa5"; ctx.font = "700 14px Arial"; ctx.fillText("CATASTROPHIC ABANDONMENT INDEX™", 1122, 315);
+    ctx.textAlign = "left";
+    const metrics = [["MEDIAN REPLY", formatDuration(a.medianReply)], ["LONGEST SILENCE", formatDuration(a.longestSilence)], ["YOUR EFFORT", `${Math.round(a.effortShare * 100)}%`], ["EVIDENCE QUALITY", `${a.quality}%`]];
+    metrics.forEach(([label, value], index) => {
+      const x = 70 + index * 274;
+      ctx.strokeStyle = "#2a2e36"; ctx.beginPath(); ctx.moveTo(x, 390); ctx.lineTo(x + 230, 390); ctx.stroke();
+      ctx.fillStyle = "#949aa5"; ctx.font = "12px Arial"; ctx.fillText(label, x, 425);
+      ctx.fillStyle = "#f5f2eb"; ctx.font = "700 28px Arial"; ctx.fillText(value, x, 465);
+    });
+    ctx.fillStyle = "#69717d"; ctx.font = "14px Arial"; ctx.fillText("Entertainment only. Behavior is measurable; intention is not.", 70, 555);
+    canvas.toBlob(blob => {
+      if (blob) downloadBlob(blob, `${a.caseId.toLowerCase()}-verdict.png`);
+      toast("Verdict card saved");
+    }, "image/png");
+  }
+
+  async function runOcr() {
+    if (!state.imageFile) return toast("Choose a screenshot first");
+    const button = $("#runOcr");
+    const status = $("#ocrState");
+    if (!window.Tesseract) {
+      status.textContent = "OCR library unavailable offline";
+      toast("OCR needs an internet connection. TXT and paste analysis remain offline.", 4200);
+      return;
+    }
+    button.disabled = true;
+    button.textContent = "Extracting…";
+    try {
+      const result = await window.Tesseract.recognize(state.imageFile, "eng", {
+        logger: message => {
+          if (message.status === "recognizing text") status.textContent = `Recognizing · ${Math.round((message.progress || 0) * 100)}%`;
+          else status.textContent = message.status.replace(/\b\w/g, letter => letter.toUpperCase());
+        }
+      });
+      const raw = result.data.text.trim();
+      if (!raw) throw new Error("No readable text was detected");
+      const lines = raw.split("\n").map(line => line.trim()).filter(line => line.length > 1);
+      const alreadyStructured = lines.some(line => /\d{1,2}:\d{2}/.test(line) && /:/.test(line));
+      const formatted = alreadyStructured ? raw : lines.map((line, index) => `${index % 2 ? "You" : "Other"}: ${line}`).join("\n");
+      elements.chatInput.value = formatted;
+      state.source = "screenshot";
+      refreshInputStats();
+      $$(".source-tab").forEach(tab => tab.classList.toggle("active", tab.dataset.source === "paste"));
+      $$(".source-pane").forEach(pane => pane.classList.toggle("active", pane.dataset.pane === "paste"));
+      status.textContent = `OCR complete · ${Math.round(result.data.confidence || 0)}% confidence`;
+      toast("Text extracted. Review sender labels before analysis.", 4200);
+    } catch (error) {
+      status.textContent = "Extraction failed";
+      toast(error.message || "OCR failed. Try a higher-resolution screenshot.", 4200);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Extract text";
+    }
+  }
+
+  function handleAnalyze() {
+    const messages = parseConversation(elements.chatInput.value);
+    const participants = [...new Set(messages.map(message => message.sender))];
+    if (messages.length < 4) return toast("Add at least four recognizable messages or load a demo case.", 3600);
+    if (participants.length < 2) return toast("Two senders are required. Format messages as “Name: message”.", 4200);
+    const selected = elements.selfSelect.value;
+    const selfName = selected || participants.find(name => /^(you|me|myself)$/i.test(name)) || participants[0];
+    state.messages = messages;
+    state.analysis = analyze(messages, selfName);
+    runScan(state.analysis);
+  }
+
+  function setupTabs() {
+    $$(".source-tab").forEach(tab => tab.addEventListener("click", () => {
+      state.source = tab.dataset.source;
+      $$(".source-tab").forEach(item => {
+        const active = item === tab;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      $$(".source-pane").forEach(pane => pane.classList.toggle("active", pane.dataset.pane === tab.dataset.source));
+    }));
+    $$(".result-tab").forEach(tab => tab.addEventListener("click", () => {
+      $$(".result-tab").forEach(item => {
+        const active = item === tab;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-selected", String(active));
+      });
+      $$(".result-view").forEach(panel => panel.classList.toggle("active", panel.dataset.viewPanel === tab.dataset.view));
+      if (tab.dataset.view === "overview") requestAnimationFrame(() => drawLatencyChart(state.analysis?.replyEvents || []));
+      beep("tick");
+    }));
+  }
+
+
+  function finalPanicFinale() {
+    if (!state.analysis) return;
+    const a = state.analysis;
+    createEmojiRain(true);
+    beep("reveal");
+    $("#flashText").textContent = "HOPE DELISTED";
+    const flash = $("#verdictFlash");
+    flash.classList.add("show");
+    setTimeout(() => flash.classList.remove("show"), 1700);
+    toast(`Final demo mode: ${a.score.toFixed(6)}% crisis, 0 useful outcomes, ${a.doubleTextMessages} dignity liabilities. 🪦`, 6200);
+    document.body.classList.add("final-panic");
+    setTimeout(() => document.body.classList.remove("final-panic"), 5200);
+  }
+
+  function bindEvents() {
+    setupTabs();
+    $("#caseNumber").textContent = `#${state.caseId}`;
+    elements.chatInput.addEventListener("input", refreshInputStats);
+    $("#clearInput").addEventListener("click", () => { elements.chatInput.value = ""; refreshInputStats(); elements.chatInput.focus(); });
+    $$('[data-sample]').forEach(button => button.addEventListener("click", () => {
+      elements.chatInput.value = samples[button.dataset.sample];
+      state.source = "paste";
+      refreshInputStats();
+      beep("tick");
+      toast(`${button.dataset.sample[0].toUpperCase()}${button.dataset.sample.slice(1)} case loaded`);
+    }));
+    $("#fileInput").addEventListener("change", event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (file.size > 10 * 1024 * 1024) return toast("That export is larger than 10 MB.");
+      const reader = new FileReader();
+      reader.onload = () => {
+        elements.chatInput.value = String(reader.result || "");
+        state.source = "file";
+        refreshInputStats();
+        $("#fileState").hidden = false;
+        $("#fileState").innerHTML = `<b>${escapeHtml(file.name)}</b><span>${formatNumber(file.size / 1024)} KB · READY</span>`;
+        toast("Chat export loaded locally");
+      };
+      reader.readAsText(file);
+    });
+    $("#imageInput").addEventListener("change", event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      state.imageFile = file;
+      state.source = "screenshot";
+      const url = URL.createObjectURL(file);
+      $("#imagePreview").src = url;
+      $("#imageName").textContent = file.name;
+      $("#ocrState").textContent = "Ready for OCR";
+      $("#imageStage").hidden = false;
+    });
+    $("#runOcr").addEventListener("click", runOcr);
+    elements.analyzeButton.addEventListener("click", handleAnalyze);
+    $("#soundToggle").addEventListener("click", event => {
+      state.sound = !state.sound;
+      event.currentTarget.setAttribute("aria-pressed", String(state.sound));
+      if (state.sound) beep("good");
+    });
+    $("#newCase").addEventListener("click", () => {
+      state.analysis = null;
+      state.caseId = `AIBI-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 9000 + 1000))}`;
+      $("#caseNumber").textContent = `#${state.caseId}`;
+      showScreen("input");
+    });
+    $$("#modeSwitch button").forEach(button => button.addEventListener("click", () => {
+      state.mode = button.dataset.mode;
+      $$("#modeSwitch button").forEach(item => item.classList.toggle("active", item === button));
+      $("#modeNarration").textContent = narrationFor(state.mode, state.analysis);
+      beep("tick");
+    }));
+    $("#panicFinale").addEventListener("click", finalPanicFinale);
+    $("#exportJson").addEventListener("click", exportJson);
+    $("#shareVerdict").addEventListener("click", saveVerdictCard);
+    $("#mournButton").addEventListener("click", () => {
+      document.title = "🪦 This conversation has passed away";
+      beep("reveal");
+      toast("A completely unnecessary mourning period has begun 🥀", 4200);
+      createEmojiRain(true);
+    });
+    $("#deliverVerdict").addEventListener("click", () => {
+      const a = state.analysis;
+      if (!a) return;
+      const ruling = a.score >= 84 ? "Guilty of aggravated conversational negligence" : a.score >= 65 ? "Guilty with plausible deniability" : a.score >= 42 ? "Suspicious, but reasonable doubt survives" : "Acquitted due to insufficient emotional damage";
+      $("#courtRuling").textContent = ruling;
+      $("#courtReason").textContent = `The court considered ${a.messages.length} messages, ${a.replyEvents.length} reply transitions, and evidence quality of ${a.quality}%.`;
+      $("#flashText").textContent = a.score >= 65 ? "GUILTY" : a.score >= 42 ? "SUSPICIOUS" : "ACQUITTED";
+      const flash = $("#verdictFlash");
+      flash.classList.add("show");
+      beep(a.score < 42 ? "good" : "gavel");
+      setTimeout(() => flash.classList.remove("show"), 1450);
+    });
+    $("#verdictFlash").addEventListener("click", event => event.currentTarget.classList.remove("show"));
+    $("#rainToggle").addEventListener("change", event => $("#emojiRain").hidden = !event.target.checked);
+    ["waitSlider", "lengthSlider", "emojiSlider", "desperationSlider", "helloToggle"].forEach(id => $("#" + id).addEventListener("input", updateSimulator));
+    window.addEventListener("resize", () => {
+      clearTimeout(state.redrawTimer);
+      state.redrawTimer = setTimeout(() => state.analysis && drawLatencyChart(state.analysis.replyEvents), 120);
+    });
+  }
+
+  function createEmojiRain(intense = false) {
+    const rain = $("#emojiRain");
+    const emojis = ["🥀", "💀", "📉", "🪦", "😭", "🫠", "🤡", "🕯️"];
+    rain.innerHTML = Array.from({ length: intense ? 38 : 18 }, (_, index) => {
+      const left = (index * 37.7) % 100;
+      const duration = 8 + (index % 7) * 1.7;
+      const delay = -(index % 9) * 1.3;
+      const size = 12 + (index % 4) * 4;
+      return `<i style="left:${left}%;animation-duration:${duration}s;animation-delay:${delay}s;font-size:${size}px">${emojis[index % emojis.length]}</i>`;
+    }).join("");
+  }
+
+  bindEvents();
+  createEmojiRain();
+  elements.chatInput.value = samples.catastrophic;
+  refreshInputStats();
+})();
+
+  </script>
+</body>
+</html>

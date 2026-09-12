@@ -1,1 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0c0e">
+  <meta name="description" content="A gloriously useless machine that turns microscopic reply delays into an administratively complete emotional catastrophe.">
+  <title>Am I Being Ignored? — Department of Unnecessary Grief</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@6/dist/tesseract.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Am I Being Ignored home">
+      <span class="brand-mark">AI</span>
+      <span><b>AM I BEING IGNORED?</b><small>Department of Unnecessary Grief 🥀</small></span>
+    </a>
+    <div class="topbar-actions">
+      <span class="privacy-pill"><i></i> Hope unavailable 🪦</span>
+      <button class="icon-button" id="soundToggle" type="button" aria-pressed="true" aria-label="Toggle sound">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48a4.5 4.5 0 0 0 2-3.74Zm0-8v2.06a7 7 0 0 1 0 11.88V20a9 9 0 0 0 0-16Z"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="doom-ticker" aria-label="Department status"><div>💀 STATUS: EMOTIONALLY UNPROFITABLE <span>•</span> 🥀 HOPE INDEX: DELISTED <span>•</span> 📉 DIGNITY FUTURES: FALLING <span>•</span> 🪦 USEFUL OUTCOMES: 0</div></div>
+  <div class="emoji-rain" id="emojiRain" aria-hidden="true"></div>
 
+  <main id="main">
+    <section class="input-screen" id="inputScreen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>CASE INTAKE</span><span id="caseNumber">#AIBI-2026-0911</span></div>
+        <h1>They took 47 seconds. <em>We prepared the funeral.</em></h1>
+        <p class="lede">Submit a perfectly normal chat. We will misinterpret every pause, depreciate your dignity in real time, and produce enough paperwork to ruin a relationship that was probably fine. 💀</p>
+        <div class="hero-proof">
+          <div><strong>19.0003</strong><span>overreaction signals</span></div>
+          <div><strong>9</strong><span>crisis personalities</span></div>
+          <div><strong>0</strong><span>useful outcomes</span></div>
+        </div>
+        <div class="lab-visual" aria-label="Illustration of the analysis pipeline">
+          <div class="scan-line"></div>
+          <div class="lab-row"><span class="lab-index">01</span><span>Micro-delay catastrophization</span><b>READY 💀</b></div>
+          <div class="lab-row"><span class="lab-index">02</span><span>Dignity depreciation</span><b>FALLING 📉</b></div>
+          <div class="lab-row"><span class="lab-index">03</span><span>Emoji autopsy</span><b>OPEN 🥀</b></div>
+          <div class="lab-row muted"><span class="lab-index">04</span><span>Hope liquidation</span><b>ARMED 🪦</b></div>
+        </div>
+      </div>
+
+      <section class="intake-panel" aria-labelledby="intakeTitle">
+        <div class="panel-heading">
+          <div><span class="step-label">01 / UNNECESSARY ESCALATION</span><h2 id="intakeTitle">Turn nothing into a federal case</h2></div>
+          <span class="secure-badge">PRIVATE</span>
+        </div>
+
+        <div class="source-tabs" role="tablist" aria-label="Evidence source">
+          <button class="source-tab active" type="button" role="tab" aria-selected="true" data-source="paste">Paste chat</button>
+          <button class="source-tab" type="button" role="tab" aria-selected="false" data-source="file">Upload export</button>
+          <button class="source-tab" type="button" role="tab" aria-selected="false" data-source="screenshot">Screenshot OCR</button>
+        </div>
+
+        <div class="source-pane active" data-pane="paste">
+          <label for="chatInput">Conversation transcript</label>
+          <textarea id="chatInput" spellcheck="false" placeholder="10/09/2026, 7:42 PM - You: Are we still meeting tonight?&#10;10/09/2026, 7:43 PM - You: Hello?&#10;11/09/2026, 11:52 AM - Them: haha sorry"></textarea>
+          <div class="textarea-meta"><span id="inputStats">0 messages detected</span><button type="button" class="text-button" id="clearInput">Clear</button></div>
+        </div>
+
+        <div class="source-pane" data-pane="file">
+          <label class="drop-zone" for="fileInput">
+            <input id="fileInput" type="file" accept=".txt,text/plain">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0-12 4 4m-4-4L8 7M5 14v5h14v-5"/></svg>
+            <strong>Drop a WhatsApp export</strong>
+            <span>Choose “Without media” · TXT up to 10 MB</span>
+          </label>
+          <div class="file-state" id="fileState" hidden></div>
+        </div>
+
+        <div class="source-pane" data-pane="screenshot">
+          <label class="drop-zone visual-drop" for="imageInput">
+            <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp">
+            <div class="ocr-frame"><span></span><span></span><span></span><span></span></div>
+            <strong>Upload chat screenshot</strong>
+            <span>OCR loads on demand · you can correct the result</span>
+          </label>
+          <div class="image-stage" id="imageStage" hidden>
+            <img id="imagePreview" alt="Uploaded chat screenshot preview">
+            <div><b id="imageName">Evidence image</b><span id="ocrState">Ready for OCR</span><button class="secondary-button" id="runOcr" type="button">Extract text</button></div>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <label>Relationship context
+            <select id="contextSelect">
+              <option value="crush">🥀 Crush / situationship</option>
+              <option value="friendship">🤡 Friendship</option>
+              <option value="relationship">💔 Relationship</option>
+              <option value="group">🫠 Group chat</option>
+              <option value="workplace">📉 Workplace</option>
+            </select>
+          </label>
+          <label>Which sender is you?
+            <select id="selfSelect"><option value="">Detect from chat</option></select>
+          </label>
+          <label>Catastrophe sensitivity
+            <select id="sensitivitySelect">
+              <option value="1">Reasonable (why are you here?)</option>
+              <option value="1.5">Dramatic 🥀</option>
+              <option value="2.2" selected>Doomsday — every second hurts 💀</option>
+              <option value="3">Malayalam serial finale 😭</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <label class="switch"><input id="urgentToggle" type="checkbox"><span></span><b>Message was urgent</b></label>
+          <label class="switch"><input id="redactToggle" type="checkbox" checked><span></span><b>Redact names</b></label>
+          <label class="switch"><input id="rainToggle" type="checkbox" checked><span></span><b>Depressive emoji weather</b></label>
+        </div>
+
+        <div class="sample-strip">
+          <span>Or load classified evidence:</span>
+          <button type="button" data-sample="balanced">🙂 Suspiciously healthy</button>
+          <button type="button" data-sample="suspicious">🥀 Tiny tragedy</button>
+          <button type="button" data-sample="catastrophic">💀 State funeral</button>
+        </div>
+
+        <button class="primary-button" id="analyzeButton" type="button">
+          <span>Calculate a tragedy from nothing 💀</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <p class="disclaimer">Scientifically unhelpful. Emotionally expensive. Legally just a joke. 🪦</p>
+      </section>
+    </section>
+
+    <section class="scan-screen" id="scanScreen" hidden aria-live="polite">
+      <div class="scanner-shell">
+        <div class="scanner-header"><span>CASE ANALYSIS</span><span id="scanCase">#AIBI</span></div>
+        <div class="orbital" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core">AI</div></div>
+        <h2 id="scanHeadline">Reconstructing the timeline</h2>
+        <p id="scanDetail">Normalizing timestamps and conversational turns…</p>
+        <div class="progress-track"><span id="scanProgress"></span></div>
+        <div class="scan-log" id="scanLog"></div>
+      </div>
+    </section>
+
+    <section class="results-screen" id="resultsScreen" hidden>
+      <div class="results-topline">
+        <button class="back-button" id="newCase" type="button"><span>←</span> New case</button>
+        <div class="result-nav" role="tablist" aria-label="Result views">
+          <button class="result-tab active" data-view="overview" role="tab" aria-selected="true">Overview</button>
+          <button class="result-tab" data-view="evidence" role="tab" aria-selected="false">Evidence</button>
+          <button class="result-tab" data-view="courtroom" role="tab" aria-selected="false">Courtroom ⚖</button>
+          <button class="result-tab" data-view="obituary" role="tab" aria-selected="false">Obituary 🪦</button>
+          <button class="result-tab" data-view="simulator" role="tab" aria-selected="false">Simulator 💀</button>
+          <button class="result-tab" data-view="method" role="tab" aria-selected="false">Method</button>
+        </div>
+        <div class="results-actions">
+          <button class="secondary-button" id="exportJson" type="button">Export data</button>
+          <button class="secondary-button" id="panicFinale" type="button">Final panic</button>
+          <button class="primary-small" id="shareVerdict" type="button">Save verdict</button>
+        </div>
+      </div>
+
+      <div class="result-view active" data-view-panel="overview">
+        <section class="verdict-hero">
+          <div class="verdict-copy">
+            <div class="eyebrow"><span id="verdictCase">CASE VERDICT</span><span id="evidenceGrade">EVIDENCE GRADE B</span></div>
+            <h2 id="verdictTitle">Conversational negligence detected.</h2>
+            <p id="verdictSubtitle">The evidence suggests an unusually high concentration of silence per unit of effort.</p>
+            <div class="mode-switch" id="modeSwitch" role="group" aria-label="Verdict personality">
+              <button class="active" data-mode="scientific">Scientific</button>
+              <button data-mode="cope">Cope</button>
+              <button data-mode="brutal">Brutal</button>
+              <button data-mode="lawyer">Lawyer</button>
+              <button data-mode="corporate">Corporate</button>
+              <button data-mode="astrology">Astrology</button>
+              <button data-mode="therapist">Therapist</button>
+              <button data-mode="funeral">Funeral 🪦</button>
+              <button data-mode="emergency">Emergency 🚨</button>
+            </div>
+            <blockquote id="modeNarration"></blockquote>
+            <div class="confidence-line"><span>Evidence quality</span><div><i id="qualityBar"></i></div><b id="qualityValue">—</b></div>
+          </div>
+          <div class="score-stage">
+            <div class="score-ring" id="scoreRing"><div><span id="scoreValue">0.0</span><small>CATASTROPHIC<br>ABANDONMENT INDEX™</small></div></div>
+            <div class="score-label" id="scoreLabel">CALCULATING</div>
+            <p>Model <code>IGN-1.0</code> · Deterministic</p>
+          </div>
+        </section>
+
+        <section class="metric-grid">
+          <article><span>Median reply</span><strong id="medianMetric">—</strong><small id="medianContext">Across detected turns</small></article>
+          <article><span>Longest silence</span><strong id="silenceMetric">—</strong><small id="silenceContext">Between replies</small></article>
+          <article><span>Your effort share</span><strong id="effortMetric">—</strong><small id="effortContext">Words, messages, starts</small></article>
+          <article><span>Dignity remaining</span><strong id="questionMetric">—</strong><small id="questionContext">Non-renewable resource</small></article>
+        </section>
+
+        <section class="situation-banner">
+          <div class="situation-emoji" id="situationEmoji">🥀</div>
+          <div><span id="situationLabel">SITUATION-SPECIFIC DAMAGE</span><h3 id="situationTitle">Delusion reserve critically low</h3><p id="situationCopy">Contextual catastrophe is being prepared.</p></div>
+          <strong id="situationMetric">—</strong>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="chart-card wide">
+            <div class="card-heading"><div><span>MICRO-TRAGEDY RECONSTRUCTION</span><h3>Milliseconds of emotional ruin 📉</h3></div><b id="latencyCallout">—</b></div>
+            <canvas id="latencyChart" height="220" role="img" aria-label="Reply latency timeline"></canvas>
+          </article>
+          <article class="chart-card">
+            <div class="card-heading"><div><span>DIGNITY LIQUIDATION</span><h3>Who is carrying this corpse? ⚰️</h3></div></div>
+            <div class="effort-duel">
+              <div class="person-line"><span>You</span><b id="selfEffortLabel">—</b></div>
+              <div class="duel-bar"><i id="selfEffortBar"></i><i id="otherEffortBar"></i></div>
+              <div class="person-line"><span>Other party</span><b id="otherEffortLabel">—</b></div>
+            </div>
+            <div class="effort-details" id="effortDetails"></div>
+          </article>
+          <article class="chart-card">
+            <div class="card-heading"><div><span>HOPE WEATHER</span><h3>Brief sightings of human contact 🕯️</h3></div><b id="peakTime">—</b></div>
+            <div class="heatmap" id="heatmap" aria-label="Reply activity heatmap"></div>
+            <div class="heatmap-axis"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>11p</span></div>
+          </article>
+        </section>
+      </div>
+
+      <div class="result-view" data-view-panel="evidence">
+        <section class="section-intro"><span>02 / NEEDLESSLY DETAILED SUFFERING</span><h2>Every millisecond has been made personal. 💀</h2><p>A normal delay has been expanded into several administratively distinct forms of abandonment.</p></section>
+        <div class="evidence-layout">
+          <div class="evidence-list" id="evidenceList"></div>
+          <aside class="case-summary"><span>CASE FILE</span><h3 id="caseSummaryTitle">Evidence summary</h3><dl id="caseSummary"></dl></aside>
+        </div>
+      </div>
+
+      <div class="result-view" data-view-panel="courtroom">
+        <section class="court-hero"><span>THE COURT OF UNREASONABLE CONCLUSIONS ⚖️</span><h2>You v. A 47-second delay</h2><p>All rise. Dignity has left the courtroom.</p><button class="gavel-button" id="deliverVerdict" type="button">Deliver the verdict <span>⚖</span></button></section>
+        <div class="court-columns">
+          <article class="court-card prosecution"><span>PROSECUTION</span><h3>The case for intentional silence</h3><ol id="prosecutionList"></ol></article>
+          <article class="court-card defense"><span>DEFENSE</span><h3>Reasonable doubt remains</h3><ol id="defenseList"></ol></article>
+        </div>
+        <div class="court-verdict" id="courtVerdict"><span>FINAL RULING</span><h3 id="courtRuling">Awaiting the gavel</h3><p id="courtReason">Review the exhibits, then deliver the verdict.</p></div>
+      </div>
+
+      <div class="result-view" data-view-panel="obituary">
+        <section class="obituary-hero">
+          <span>IN UNNECESSARY MEMORIAM 🥀</span>
+          <div class="obituary-icon">🪦</div>
+          <h2 id="obituaryTitle">Here lies a perfectly normal conversation.</h2>
+          <p id="obituaryDates">Born recently · Declared dead almost immediately</p>
+          <blockquote id="obituaryQuote">“They took slightly longer than expected.”</blockquote>
+          <button class="gavel-button" id="mournButton" type="button">Begin excessive mourning 😭</button>
+        </section>
+        <div class="grief-grid" id="griefGrid"></div>
+        <section class="death-certificate">
+          <span>OFFICIAL CERTIFICATE OF DIGITAL DEMISE</span>
+          <h3 id="causeOfDeath">Cause of death: a minor scheduling conflict</h3>
+          <p id="obituaryBody">This conversation is survived by several unread drafts, one overused crying emoji, and a dignity balance approaching zero.</p>
+          <div><b id="obituaryScore">0.000000%</b><small>PROBABILITY WE OVERREACTED</small></div>
+        </section>
+      </div>
+      <div class="result-view" data-view-panel="simulator">
+        <section class="section-intro"><span>DIGNITY DERIVATIVES MARKET 📉</span><h2>How quickly can we make this worse?</h2><p>Speculate against your own peace using an entirely fictional double-text futures model.</p></section>
+        <div class="sim-grid">
+          <section class="sim-controls">
+            <label>Hours since your message <output id="waitOutput">8 h</output><input id="waitSlider" type="range" min="0" max="72" value="8"></label>
+            <label>Message length <output id="lengthOutput">24 chars</output><input id="lengthSlider" type="range" min="1" max="240" value="24"></label>
+            <label>Emoji count <output id="emojiOutput">1</output><input id="emojiSlider" type="range" min="0" max="12" value="1"></label>
+            <label>Desperation level <output id="desperationOutput">38%</output><input id="desperationSlider" type="range" min="0" max="100" value="38"></label>
+            <label class="switch large"><input id="helloToggle" type="checkbox"><span></span><b>Include “hello??”</b></label>
+          </section>
+          <section class="sim-result">
+            <span>SIMULATED OUTCOME</span>
+            <div class="sim-score"><strong id="simDamage">63</strong><small>EMOTIONAL<br>DAMAGE</small></div>
+            <h3 id="simRecommendation">Wait. Protect the remaining dignity.</h3>
+            <p id="simExplanation">The expected reply benefit does not currently justify the second-message exposure.</p>
+            <div class="sim-bars"><label>Reply probability <span id="replyProb">—</span><i><b id="replyBar"></b></i></label><label>Regret probability <span id="regretProb">—</span><i><b id="regretBar"></b></i></label></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="result-view" data-view-panel="method">
+        <section class="section-intro"><span>OVER-CALCULATION DEPARTMENT 🧮</span><h2>Six decimals. Zero wisdom.</h2><p>We applied industrial-grade mathematics to the emotional equivalent of someone going to the bathroom.</p></section>
+        <div class="method-grid">
+          <article><span>35%</span><h3>Delay pattern</h3><p>Median, p90, and extreme gaps between conversational turns.</p></article>
+          <article><span>20%</span><h3>Question avoidance</h3><p>Questions with no later response in the observed window.</p></article>
+          <article><span>15%</span><h3>Consecutive messages</h3><p>Double, triple, and increasingly brave follow-ups.</p></article>
+          <article><span>10%</span><h3>Effort imbalance</h3><p>Share of words, messages, and session initiations.</p></article>
+          <article><span>10%</span><h3>Dry-reply intensity</h3><p>Very short replies and a small transparent dry-token list.</p></article>
+          <article><span>10%</span><h3>Conversation decay</h3><p>Change in reply speed and reply length over the observed period.</p></article>
+        </div>
+        <div class="formula-card"><span>IGN-1.0</span><code>score = 100 / (1 + e<sup>−z</sup>)</code><p>Evidence quality is reported separately using timestamp coverage, sample size, and input confidence.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="verdict-flash" id="verdictFlash" aria-hidden="true"><div><span>⚖</span><b id="flashText">GUILTY</b><small>WITH PLAUSIBLE DENIABILITY</small></div></div>
+</body>
+</html>
